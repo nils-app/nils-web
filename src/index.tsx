@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 
-import "assets/scss/argon-dashboard-react.scss";
+import "assets/scss/index.scss";
 import Router from './router';
 
 const app = (

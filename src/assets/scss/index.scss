@@ -1,0 +1,52 @@
+@import "variables";
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background: $lighter;
+}
+
+.sidebar {
+    padding-top: 1.5rem;
+}
+
+.logo {
+    text-align:center;
+    font-size: 2em;
+    margin-bottom: 2rem;
+
+    img {
+        position: relative;
+        top: -0.1em;
+    }
+}
+
+.header {
+    padding: 1rem 1rem 6rem;
+
+    a {
+        color: inherit;
+    }
+
+    .navbar {
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+}
+
+.content {
+    margin-top: -5rem;
+}
+
+.dashboard-widget {
+    background: #fff;
+    border: #efefef solid 1px;
+    border-radius: 0.5em;
+    box-shadow: 0 0 2rem 0 rgba(136,152,170,.15) !important;
+    color: $body-color;
+}
+
+.bg-gradient {
+    color: #fff;
+    background: linear-gradient(87deg, $secondary, $secondary-dark) !important;
+}

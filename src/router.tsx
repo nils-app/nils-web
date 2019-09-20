@@ -1,13 +1,12 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router';
+import { Switch, Route } from 'react-router-dom';
 
-import AdminLayout from 'sections/admin';
-import AuthLayout from 'sections/auth';
+import Dashboard from 'sections/dashboard'
 
-export default () => (
-  <Switch>
-    <Route path="/admin" component={ AdminLayout } />
-    <Route path="/auth" component={ AuthLayout } />
-    <Redirect from="/" to="/auth" />
-  </Switch>
-);
+export default () => {
+    return (
+        <Switch>
+            <Route path='/' component={ Dashboard } />
+        </Switch>
+    );
+};
