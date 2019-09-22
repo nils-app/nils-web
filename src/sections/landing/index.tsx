@@ -16,6 +16,9 @@ export default () => {
                 <Logo /> Nils
               </Navbar.Brand>
               <Navbar.Collapse className="justify-content-end">
+                <Nav.Link href="/dashboard">
+                  Dashboard
+                </Nav.Link>
                 <Nav.Link href="/login">
                   <FontAwesomeIcon icon="sign-in-alt" /> Login
                 </Nav.Link>
@@ -30,10 +33,10 @@ export default () => {
                   </p>
                   <h3>Get started:</h3>
                   <p>
-                    <Button>
+                    <Button href="/dashboard">
                       Internet user
                     </Button>
-                    <Button>
+                    <Button href="/dashboard">
                       Content creator
                     </Button>
                   </p>
