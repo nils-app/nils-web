@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, Nav } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from './Logo';
 
@@ -10,8 +11,12 @@ export default () => {
         <Logo /> Nils
       </h1>
       <Nav defaultActiveKey="/home" className="flex-column">
-        <Nav.Link active href="/home">Dashboard</Nav.Link>
-        <Nav.Link eventKey="link-1">Settings</Nav.Link>
+        <Nav.Link active href="/home">
+            <FontAwesomeIcon icon="columns" fixedWidth /> Dashboard
+        </Nav.Link>
+        <Nav.Link eventKey="link-1">
+            <FontAwesomeIcon icon="cog" fixedWidth /> Settings
+        </Nav.Link>
       </Nav>
     </div>
   );
