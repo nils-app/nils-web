@@ -18,8 +18,8 @@ export default () => {
         </Col>
         <Col>
           <Switch>
-            <Route path="/settings" component={ Settings } />
-            <Route path="/" component={ Main } />
+            <Route path="/dashboard/settings" component={ Settings } />
+            <Route path="/dashboard/" component={ Main } />
           </Switch>
         </Col>
       </Row>

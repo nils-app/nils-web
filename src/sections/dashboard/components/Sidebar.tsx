@@ -13,12 +13,12 @@ type Section = {
 
 const sections: Section[] = [
   {
-    link: '/',
+    link: '',
     text: 'Dashboard',
     icon: 'columns',
   },
   {
-    link: '/settings',
+    link: 'settings',
     text: 'Settings',
     icon: 'cog',
   },
@@ -32,9 +32,9 @@ export default () => {
           <Logo /> Nils
         </h1>
         <hr/>
-        <Nav defaultActiveKey="/home" className="flex-column">
+        <Nav defaultActiveKey="/dashboard/" className="flex-column">
           { sections.map(section => (
-            <Nav.Link href={ section.link }>
+            <Nav.Link href={ `/dashboard/${section.link}` }>
                 <FontAwesomeIcon icon={ section.icon } fixedWidth /> {section.text}
             </Nav.Link>
           )) }
