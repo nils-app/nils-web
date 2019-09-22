@@ -13,6 +13,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Sidebar from "components/Sidebar";
+import Counter from './widgets/counter';
 
 export default () => {
   return (
@@ -36,44 +37,31 @@ export default () => {
                 </Row>
                 <Row>
                     <Col>
-                    <div className="dashboard-widget">
-                        <div className="title">Balance</div>
-                        <span className="content">10 Nils</span>
-                        <span className="icon green">
-                            <FontAwesomeIcon icon='coins' />
-                        </span>
-                        <div className="history">
-                            <span className="change text-success">
-                                <FontAwesomeIcon icon='arrow-up' /> 3.5%
-                            </span>
-                            <span className="text-muted">
-                                Since last month
-                            </span>
-                        </div>
-                    </div>
+                      <Counter
+                        title='Balance'
+                        content='10 Nils'
+                        icon='coins'
+                        iconBg='green'
+                        change='3.5%'
+                        history='Since last month'
+                      />
                     </Col>
                     <Col>
-                    <div className="dashboard-widget">
-                        <div className="title">Domains</div>
-                        <span className="content">3</span>
-                        <span className="icon blue">
-                            <FontAwesomeIcon icon='at' />
-                        </span>
-                    </div>
+                      <Counter
+                        title='Domain'
+                        content='3'
+                        icon='at'
+                        iconBg='blue'
+                      />
                     </Col>
                     <Col>
-                    <div className="dashboard-widget">
-                        <div className="title">Next payout</div>
-                        <span className="content">-</span>
-                        <span className="icon orange">
-                            <FontAwesomeIcon icon='credit-card' />
-                        </span>
-                        <div className="history">
-                            <span className="text-muted">
-                                Last: 05/09/2019
-                            </span>
-                        </div>
-                    </div>
+                      <Counter
+                        title='Next payout'
+                        content='-'
+                        icon='credit-card'
+                        iconBg='orange'
+                        history='Last: 5th Sep 2019'
+                      />
                     </Col>
                 </Row>
             </div>
@@ -118,7 +106,7 @@ export default () => {
                     <tbody>
                         <tr>
                         <td>NILS1020</td>
-                        <td>05/09/2019</td>
+                        <td>5<sup>th</sup> Sep 2019</td>
                         <td>£10</td>
                         </tr>
                     </tbody>

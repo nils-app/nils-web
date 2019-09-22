@@ -18,6 +18,10 @@ export default () => {
             <FontAwesomeIcon icon="cog" fixedWidth /> Settings
         </Nav.Link>
       </Nav>
+      <hr/>
+      <p className="text-center text-muted">
+        &copy; Nils 2019
+      </p>
     </div>
   );
 };
