@@ -38,7 +38,7 @@ export default () => {
                       content='10 Nils'
                       icon='coins'
                       iconBg='green'
-                      change='3.5%'
+                      change={3.5}
                       history='Since last month'
                       href='/balance'
                     />
@@ -49,6 +49,7 @@ export default () => {
                       content='3'
                       icon='at'
                       iconBg='blue'
+                      href='/domains'
                     />
                   </Col>
                   <Col>
@@ -58,6 +59,7 @@ export default () => {
                       icon='credit-card'
                       iconBg='orange'
                       history='Last: 5th Sep 2019'
+                      href='/settings'
                     />
                   </Col>
               </Row>

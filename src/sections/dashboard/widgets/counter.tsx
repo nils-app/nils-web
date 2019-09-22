@@ -9,19 +9,30 @@ type Props = {
   content: string;
   icon?: IconProp;
   iconBg?: "blue" | "orange" | "green";
-  change?: string;
-  changeType?: "good" | "bad";
+  change?: number;
   history?: string;
   href?: string;
 };
 
-export default (props: Props) => {
+const Change = (props: Props) => {
+  if (typeof props.change === 'undefined') {
+    return null;
+  }
   let changeClass = "text-success";
   let changeIcon: IconProp = "arrow-up";
-  if (props.change !== "good") {
+  if (props.change < 0) {
     changeClass = "text-danger";
     changeIcon = "arrow-down";
   }
+  return (
+    <span className={classnames("change", changeClass)}>
+      <FontAwesomeIcon icon={changeIcon} /> {props.change}%
+    </span>
+  );
+};
+
+export default (props: Props) => {
+
   const content = (
     <>
       <div className="title">{props.title}</div>
@@ -32,11 +43,7 @@ export default (props: Props) => {
         </span>
       )}
       <div className="history">
-        {props.change && (
-          <span className={classnames("change", changeClass)}>
-            <FontAwesomeIcon icon={changeIcon} /> {props.change}
-          </span>
-        ) }
+        <Change {...props} />
         <span className="text-muted">{props.history}</span>
       </div>
     </>
