@@ -41,7 +41,7 @@ export default () => {
           section='Home'
         />
         <Row>
-          <Col>
+          <Col xs={12}>
             <Counter
               title="Balance"
               content="10 Nils"
@@ -53,7 +53,7 @@ export default () => {
               tooltip="View your monthly balance"
             />
           </Col>
-          <Col>
+          <Col xs={12}>
             <Counter
               title="Domains"
               content="3"
@@ -63,7 +63,7 @@ export default () => {
               tooltip="Add/Remove Domains"
             />
           </Col>
-          <Col>
+          <Col xs={12}>
             <Counter
               title="Next payout"
               content="-"

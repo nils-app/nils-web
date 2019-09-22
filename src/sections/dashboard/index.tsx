@@ -13,10 +13,10 @@ export default () => {
   return (
     <>
       <Row noGutters className='full-height'>
-        <Col xs="2" className='full-height'>
+        <Col xs={ 0 } className='full-height'>
           <Sidebar />
         </Col>
-        <Col>
+        <Col xs={ 12 }>
           <Switch>
             <Route path="/dashboard/settings" component={ Settings } />
             <Route path="/dashboard/" component={ Main } />

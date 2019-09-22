@@ -7,7 +7,8 @@ import {
     faCog,
     faArrowUp,
     faArrowDown,
-    faSignOutAlt
+    faSignOutAlt,
+    faSignInAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 /**
@@ -15,5 +16,5 @@ import {
  */
 
 export default () => {
-  library.add(faCoins, faCreditCard, faAt, faColumns, faCog, faArrowDown, faArrowUp, faSignOutAlt);
+  library.add(faCoins, faCreditCard, faAt, faColumns, faCog, faArrowDown, faArrowUp, faSignOutAlt, faSignInAlt);
 };
