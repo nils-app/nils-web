@@ -2,6 +2,14 @@
 
 @import "~bootstrap/scss/bootstrap";
 
+html, body {
+  width: 100%;
+}
+
+html, body, #root, .full-height {
+  height: 100%;
+}
+
 body {
     background: $lighter;
 }
@@ -10,13 +18,30 @@ body {
     padding-top: 1.5rem;
     font-weight: 300;
     font-size: 0.9rem;
+    background: #fff;
+    height: 100%;
+    border-right: $light solid 1px;
+    display: flex;
+    flex-direction: column;
 
     a {
         color: $dark;
+
+        &:hover {
+          background: $lighter;
+        }
+
+        &.active {
+          background: $lighter;
+        }
     }
 
     svg {
         margin-right: 1rem;
+    }
+
+    .top {
+      flex-grow: 1;
     }
 }
 
@@ -39,7 +64,7 @@ body {
     padding: 1rem 2rem 6rem;
 
     a {
-        color: inherit;
+        color: rgba(255,255,255,0.6);
     }
 
     .navbar {
@@ -53,15 +78,26 @@ body {
     padding: 0 2rem;
 }
 
+a.dashboard-widget {
+  transition-property: box-shadow, transform;
+  transition-duration: .15s;
+
+  &:hover {
+    box-shadow: 0 10px 1.5rem 0 rgba(0,0,0,.35);
+    transform: translateY(-2px);
+  }
+}
+
 .dashboard-widget {
     background: #fff;
     border: #efefef solid 1px;
     border-radius: 0.5em;
-    box-shadow: 0 0 2rem 0 rgba(136,152,170,.35) !important;
+    box-shadow: 0 0 1.5rem 0 rgba(0,0,0,.15);
     color: $body-color;
     padding: 1rem;
     position: relative;
     min-height: 5em;
+    display: block;
 
     h2 {
         font-size: 1.5rem;
@@ -129,8 +165,8 @@ body {
         text-transform: uppercase;
         font-size: .65rem;
         letter-spacing: 1px;
-        border-top: 1px solid #e9ecef;
-        border-bottom: 1px solid #e9ecef;
+        border-top: 1px solid $light;
+        border-bottom: 1px solid $light;
       }
 
       tbody {
@@ -160,8 +196,8 @@ body {
     &:after {
       content: ' ';
       display: block;
-      width: 150%;
-      background: #fff;
+      width: 100%;
+      background: $lighter;
       height: 2em;
       position: absolute;
       bottom: -1em;

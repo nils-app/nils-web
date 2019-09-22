@@ -1,16 +1,11 @@
 import React from "react";
 import {
-  Container,
   Row,
   Col,
   Nav,
   Navbar,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button
 } from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Sidebar from "components/Sidebar";
 import Counter from './widgets/counter';
@@ -18,54 +13,56 @@ import Counter from './widgets/counter';
 export default () => {
   return (
     <>
-      <Container fluid style={ { padding: 0, margin: 0 } }>
-        <Row noGutters>
-          <Col xs="2">
-            <Sidebar />
-          </Col>
-          <Col>
-            <div className="header bg-gradient">
-                <Row>
-                    <Col>
-                    <Navbar bg="transparent" variant="dark">
-                        <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
-                        <Navbar.Collapse className="justify-content-end">
-                        <Nav.Link href="#test">Logout</Nav.Link>
-                        </Navbar.Collapse>
-                    </Navbar>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                      <Counter
-                        title='Balance'
-                        content='10 Nils'
-                        icon='coins'
-                        iconBg='green'
-                        change='3.5%'
-                        history='Since last month'
-                      />
-                    </Col>
-                    <Col>
-                      <Counter
-                        title='Domain'
-                        content='3'
-                        icon='at'
-                        iconBg='blue'
-                      />
-                    </Col>
-                    <Col>
-                      <Counter
-                        title='Next payout'
-                        content='-'
-                        icon='credit-card'
-                        iconBg='orange'
-                        history='Last: 5th Sep 2019'
-                      />
-                    </Col>
-                </Row>
-            </div>
-            <Row className="content padded">
+      <Row noGutters className='full-height'>
+        <Col xs="2" className='full-height'>
+          <Sidebar />
+        </Col>
+        <Col>
+          <div className="header bg-gradient">
+              <Row>
+                  <Col>
+                  <Navbar bg="transparent" variant="dark">
+                      <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
+                      <Navbar.Collapse className="justify-content-end">
+                      <Nav.Link href="/logout">
+                        <FontAwesomeIcon icon="sign-out-alt" /> Logout
+                      </Nav.Link>
+                      </Navbar.Collapse>
+                  </Navbar>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                    <Counter
+                      title='Balance'
+                      content='10 Nils'
+                      icon='coins'
+                      iconBg='green'
+                      change='3.5%'
+                      history='Since last month'
+                      href='/balance'
+                    />
+                  </Col>
+                  <Col>
+                    <Counter
+                      title='Domains'
+                      content='3'
+                      icon='at'
+                      iconBg='blue'
+                    />
+                  </Col>
+                  <Col>
+                    <Counter
+                      title='Next payout'
+                      content='-'
+                      icon='credit-card'
+                      iconBg='orange'
+                      history='Last: 5th Sep 2019'
+                    />
+                  </Col>
+              </Row>
+          </div>
+          <Row className="content padded">
             <Col>
                 <div className="dashboard-widget">
                 <h2>Balances</h2>
@@ -114,10 +111,9 @@ export default () => {
                 </div>
                 </div>
             </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+          </Row>
+        </Col>
+      </Row>
     </>
   );
 };
