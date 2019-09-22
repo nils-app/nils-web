@@ -50,6 +50,7 @@ export default () => {
               change={3.5}
               history="Since last month"
               href="/balance"
+              tooltip="View your monthly balance"
             />
           </Col>
           <Col>
@@ -59,6 +60,7 @@ export default () => {
               icon="at"
               iconBg="blue"
               href="/domains"
+              tooltip="Add/Remove Domains"
             />
           </Col>
           <Col>
@@ -69,6 +71,7 @@ export default () => {
               iconBg="orange"
               history="Last: 5th Sep 2019"
               href="/settings"
+              tooltip="View your payout settings and history"
             />
           </Col>
         </Row>

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "react-router-dom";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
 type Props = {
   title: string;
@@ -12,6 +13,7 @@ type Props = {
   change?: number;
   history?: string;
   href?: string;
+  tooltip?: string;
 };
 
 const Change = (props: Props) => {
@@ -32,8 +34,7 @@ const Change = (props: Props) => {
 };
 
 export default (props: Props) => {
-
-  const content = (
+  let content = (
     <>
       <div className="title">{props.title}</div>
       <span className="content">{props.content}</span>
@@ -49,16 +50,35 @@ export default (props: Props) => {
     </>
   );
   if (props.href) {
-    return (
+    content = (
       <Link to={ props.href } className="dashboard-widget">
         { content }
       </Link>
     );
+  } else {
+    content = (
+      <div className="dashboard-widget">
+        { content }
+      </div>
+    );
   }
 
+  if (!props.tooltip) {
+    return content;
+  }
+
+  const tooltip = (
+    <Tooltip id='counterTooltip'>
+      { props.tooltip }
+    </Tooltip>
+  );
+
   return (
-    <div className="dashboard-widget">
+    <OverlayTrigger
+      delay={{ show: 50, hide: 0 }}
+      overlay={ tooltip }
+    >
       { content }
-    </div>
+    </OverlayTrigger>
   );
 };
