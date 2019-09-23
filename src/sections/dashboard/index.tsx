@@ -12,6 +12,8 @@ import Payouts from './pages/payouts';
 import Domains from './pages/domains';
 import Settings from './pages/settings';
 
+import './index.scss';
+
 export default () => {
   return (
     <>
