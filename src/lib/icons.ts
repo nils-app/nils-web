@@ -15,6 +15,7 @@ import {
     faSave,
     faQuestionCircle,
     faHeart,
+    faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -39,6 +40,7 @@ export default () => {
     faSave,
     faQuestionCircle,
     faSmile,
-    faHeart
+    faHeart,
+    faAngleRight,
   );
 };

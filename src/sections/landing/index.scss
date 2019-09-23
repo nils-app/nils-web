@@ -87,11 +87,11 @@ section.content {
 
   .card-header {
     background: fade-out(#fff, 0.5);
-    border: solid 1px $light;
+    border-bottom: 3px solid darken($light, 0.1);
     cursor: pointer;
     color: $dark;
-    font-style: italic;
-    font-size: 1.1em;
+    font-size: 1.5em;
+    font-weight: 100;
 
     &:hover {
       background: fade-out(#fff, 0.2);
@@ -100,5 +100,7 @@ section.content {
 
   .card-body {
     background: transparent;
+    font-size: 1.2em;
+    font-weight: 200;
   }
 }

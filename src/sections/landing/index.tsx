@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Button, Accordion, Card } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
@@ -45,8 +46,11 @@ export default () => {
             <Accordion className='simple'>
               {faq.map((q, index) => (
                 <Card key={q.question}>
-                  <Accordion.Toggle as={Card.Header} eventKey={String(index)}>
+                  <Accordion.Toggle as={Card.Header} eventKey={String(index)} >
                     {q.question}
+                    <div style={{ float: 'right' }}>
+                      <FontAwesomeIcon icon='angle-right' />
+                    </div>
                   </Accordion.Toggle>
                   <Accordion.Collapse eventKey={String(index)}>
                     <Card.Body>

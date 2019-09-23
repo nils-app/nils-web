@@ -17,24 +17,18 @@ const faq = [
         <p>
           A ton of website owners, blog writers, or content creators want to
           monetise their content but hate the idea of putting ads along with
-          their content.
-        </p>
-        <p></p>
-        <p>
-          Most users{" "}
-          <a
+          their content. On top of that,  <a
             title="27% in 2019 in the US apparently"
             href="https://www.statista.com/statistics/804008/ad-blocking-reach-usage-us/"
           >
-            [1]
-          </a>{" "}
-          tend to browse with an Ad Blocker, as I do myself. But I'm also a
-          software developer and have a number of websites online. And it would
+            most users
+          </a> tend to browse with an <b>ad blocker</b>, and that includes me! But I'm also a
+          software developer with some websites online. And it would
           be nice if their users covered at least the cost of keeping them
           online!
         </p>
         <p>
-          So instead of paying with your data, or your ads, why not pay actual
+          So instead of paying with your data, or by viewing ads, why not pay actual
           money and be in control?
         </p>
         <p></p>
@@ -42,6 +36,14 @@ const faq = [
           <b>Nils</b> allows you to easily give each website you visit a little
           tip. This can go from £0.001 to whatever you want.
         </p>
+        <p></p>
+        <blockquote className="blockquote shadow-sm">
+          <p>
+            Some sites may choose to use Nil and still serve ads. I'm still unsure of whether this is something
+            we should enforce with policy, or allow assuming users will have an <b>ad blocker</b>...<br />
+            I'm open to hearing opinions on this.
+          </p>
+        </blockquote>
       </>
     )
   },
@@ -82,9 +84,9 @@ const faq = [
     question: "Can everyone use it?",
     answer: (
       <>
-        <p>Short answer: <b>Yes!</b></p>
+        <p><em>Short answer:</em> <b>Yes!</b></p>
         <p>
-          Long answer: We use Stripe to process card payments, so almost <a href="https://stripe.com/docs/currencies#presentment-currencies">
+          <em>Long answer:</em> We use Stripe to process card payments, so almost <a href="https://stripe.com/docs/currencies#presentment-currencies">
             every currency
           </a> is supported.
           <br />
@@ -110,6 +112,13 @@ const faq = [
           At some point though it may make sense to convert Nils into a
           cryptocurrency. That would give more transparency into how money
           moves, but may come with privacy concerns so we'll see.
+        </p>
+        <p></p>
+        <p>
+          The Brave browser has <a href="https://brave.com/brave-rewards/">something similar</a>,
+          where they pay users in a cryptocurrency (BAT) for viewing non-tracking ads, and distribute the BATs among
+          websites visited, so it just differs in how users get the money. <br/>
+          It might even be worth looking into integrating with their system in the future if this works.
         </p>
         <p></p>
         <p>Feel free to get in touch if you have an opinion on this.</p>
