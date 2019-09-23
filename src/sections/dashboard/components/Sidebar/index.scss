@@ -1,0 +1,53 @@
+@import 'assets/scss/variables';
+
+.sidebar {
+  padding-top: 1.5rem;
+  font-weight: 300;
+  font-size: 0.9rem;
+  background: #fff;
+  height: 100%;
+  border-right: $light solid 1px;
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    text-align:center;
+    font-size: 2em;
+    margin-bottom: 2rem;
+
+    img.nils-logo {
+        position: relative;
+        top: -0.1em;
+        width: 1em;
+    }
+  }
+
+  a {
+      color: $dark;
+      background: transparent;
+      transition: background ease-in-out 100ms;
+
+      &:hover {
+        background: $lighter;
+      }
+
+      &.active {
+        background: $lighter;
+        font-weight: bold;
+      }
+  }
+
+  svg {
+      margin-right: 1rem;
+  }
+
+  .top {
+    flex-grow: 1;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+.sidebar-container {
+  display: none;
+}
+}

@@ -1,0 +1,98 @@
+@import 'assets/scss/variables';
+
+.landing-page {
+  .navbar {
+    a {
+      color: fade-out(#fff, 0.2);
+    }
+
+    .nils-logo {
+      width: 2em;
+      margin-right: 0.5em;
+      position: relative;
+      bottom: 0.15em;
+    }
+  }
+
+  .bg {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transform: skewY(-10deg);
+    transform-origin: 0;
+    background: linear-gradient(150deg, $secondary-dark 15%, $secondary 70%, $orange 94%);
+    position: absolute;
+    z-index: -1;
+  }
+
+  .hero {
+    margin-top: 5rem;
+    margin-left: 1rem;
+    max-width: 40rem;
+    color: fade-out(#fff, 0.3);
+
+    h2 {
+      color: white;
+      font-size: 3rem;
+      position: relative;
+
+      &:after {
+        min-width: 100%;
+        max-width: 30rem;
+        background: fade-out($primary, 0.5);
+        height: 1.75rem;
+        display: block;
+        content: ' ';
+        position: absolute;
+        z-index: -1;
+        bottom: 0.2rem;
+        left: -1rem;
+      }
+    }
+
+    h3 {
+      color: fade-out(#fff, 0.1);
+      font-size: 2rem;
+      margin-top: 3rem;
+    }
+
+    .btn {
+      margin-right: 1rem;
+      text-shadow: 0 1px 3px fade-out(#fff, 0.6);
+      box-shadow: 0 4px 6px rgba(50,50,93,.11),
+                  0 1px 3px rgba(0,0,0,.08);
+    }
+
+    small {
+      font-size: 0.95rem;
+    }
+
+    .text-muted {
+      color: fade-out(#fff, 0.5) !important;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 300;
+
+      b {
+        color: #fff;
+        position: relative;
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+
+        &:after {
+          width: 110%;
+          background: fade-out($primary, 0.5);
+          height: 2rem;
+          display: block;
+          content: ' ';
+          position: absolute;
+          z-index: -1;
+          bottom: -0.2rem;
+          left: -5%;
+        }
+      }
+    }
+  }
+}
