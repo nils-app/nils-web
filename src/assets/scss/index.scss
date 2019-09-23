@@ -15,8 +15,8 @@ body {
     background: $lighter;
 }
 
-.navbar-brand {
-  font-family: 'Comfortaa', cursive;
+.navbar-brand, h1, h2, h3, h4, h5 {
+  font-family: $headingFont;
 }
 
 .sidebar {
@@ -51,7 +51,7 @@ body {
 }
 
 @include media-breakpoint-down(sm) {
-  .sidebar {
+  .sidebar-container {
     display: none;
   }
 }
@@ -245,7 +245,6 @@ a.dashboard-widget {
       color: white;
       font-size: 3rem;
       position: relative;
-      font-family: 'Comfortaa', cursive;
 
       &:after {
         min-width: 100%;
@@ -264,7 +263,6 @@ a.dashboard-widget {
     h3 {
       color: fade-out(#fff, 0.1);
       font-size: 2rem;
-      font-family: 'Comfortaa', cursive;
       margin-top: 3rem;
     }
 

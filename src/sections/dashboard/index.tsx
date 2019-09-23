@@ -13,7 +13,7 @@ export default () => {
   return (
     <>
       <Row noGutters className='full-height'>
-        <Col xs={ 0 } sm={ 2 } className='full-height'>
+        <Col xs={ 0 } sm={ 2 } className='full-height sidebar-container'>
           <Sidebar />
         </Col>
         <Col xs={ 12 } sm={ 10 }>

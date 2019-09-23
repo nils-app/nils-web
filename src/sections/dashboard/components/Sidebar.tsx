@@ -34,7 +34,7 @@ export default () => {
         <hr/>
         <Nav defaultActiveKey="/dashboard/" className="flex-column">
           { sections.map(section => (
-            <Nav.Link href={ `/dashboard/${section.link}` }>
+            <Nav.Link href={ `/dashboard/${section.link}` } key={ section.link }>
                 <FontAwesomeIcon icon={ section.icon } fixedWidth /> {section.text}
             </Nav.Link>
           )) }
