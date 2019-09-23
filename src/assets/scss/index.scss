@@ -15,8 +15,16 @@ html, body, #root, .full-height {
   height: 100%;
 }
 
-.navbar-brand, h1, h2, h3, h4, h5 {
+.navbar-brand, h1, h2, h3 {
   font-family: $headingFont;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  margin: 0 0 5px;
 }
 
 .navbar.bg-light {

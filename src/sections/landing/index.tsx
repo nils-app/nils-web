@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Row, Col, Button, Accordion, Card } from "react-bootstrap";
+
 import Navbar from "components/Navbar";
+import Footer from "components/Footer";
 
 import "./index.scss";
 import faq from './faq';
@@ -56,6 +58,7 @@ export default () => {
             </Accordion>
           </Container>
         </section>
+        <Footer />
     </>
   );
 };
