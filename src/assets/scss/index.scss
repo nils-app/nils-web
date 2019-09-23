@@ -57,4 +57,8 @@ html, body, #root, .full-height {
 
 .modal-header {
   font-family: $headingFont;
+
+  &.bg-fade button.close {
+    color: #fff;
+  }
 }

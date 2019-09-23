@@ -47,7 +47,7 @@ export default () => {
     <div className='sidebar'>
       <div className="top">
         <h1 className='logo'>
-          <Logo /> Nils
+          <Logo />
         </h1>
         <Nav defaultActiveKey="/dashboard/" className="flex-column">
           { sections.map(section => (
