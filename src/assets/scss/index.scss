@@ -208,17 +208,19 @@ a.dashboard-widget {
     position: relative;
     overflow: hidden;
     padding: 1rem 2rem $bottomGradientSpacing;
+    z-index: 0;
 
     &:after {
       content: ' ';
       display: block;
       width: 110%;
       background: $lighter;
-      height: 6em;
+      height: 20rem;
       position: absolute;
-      bottom: -2.25rem;
+      bottom: -15rem;
       left: 0;
-      transform: rotate(-5deg);
+      transform: rotate(-2deg);
+      z-index: -1;
     }
 }
 

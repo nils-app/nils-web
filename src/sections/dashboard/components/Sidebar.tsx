@@ -2,6 +2,7 @@ import React from "react";
 import { Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { NavLink } from 'react-router-dom';
 
 import Logo from './Logo';
 
@@ -34,7 +35,12 @@ export default () => {
         <hr/>
         <Nav defaultActiveKey="/dashboard/" className="flex-column">
           { sections.map(section => (
-            <Nav.Link href={ `/dashboard/${section.link}` } key={ section.link }>
+            <Nav.Link
+              as={ NavLink }
+              to={ `/dashboard/${section.link}` }
+              key={ section.link }
+              exact
+            >
                 <FontAwesomeIcon icon={ section.icon } fixedWidth /> {section.text}
             </Nav.Link>
           )) }

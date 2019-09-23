@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Header from "../components/Header";
 
@@ -30,7 +31,7 @@ export default () => {
                 <Form.Check type="checkbox" label="Check me out" />
               </Form.Group>
               <Button variant="primary" type="submit">
-                Save
+                <FontAwesomeIcon icon='save'/> Save changes
               </Button>
             </Form>
           </div>
