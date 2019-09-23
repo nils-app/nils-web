@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/nils-web/static/css/main.826154c8.chunk.css",
-    "main.js": "/nils-web/static/js/main.1d7d97a0.chunk.js",
-    "main.js.map": "/nils-web/static/js/main.1d7d97a0.chunk.js.map",
+    "main.js": "/nils-web/static/js/main.99623325.chunk.js",
+    "main.js.map": "/nils-web/static/js/main.99623325.chunk.js.map",
     "runtime-main.js": "/nils-web/static/js/runtime-main.212573f7.js",
     "runtime-main.js.map": "/nils-web/static/js/runtime-main.212573f7.js.map",
     "static/js/2.5b99bf74.chunk.js": "/nils-web/static/js/2.5b99bf74.chunk.js",
     "static/js/2.5b99bf74.chunk.js.map": "/nils-web/static/js/2.5b99bf74.chunk.js.map",
     "index.html": "/nils-web/index.html",
-    "precache-manifest.2c4b01b3f6c363d4e62c1dd7a0945e1a.js": "/nils-web/precache-manifest.2c4b01b3f6c363d4e62c1dd7a0945e1a.js",
+    "precache-manifest.d16916fb0b6c3a05e166466c5c381000.js": "/nils-web/precache-manifest.d16916fb0b6c3a05e166466c5c381000.js",
     "service-worker.js": "/nils-web/service-worker.js",
     "static/css/main.826154c8.chunk.css.map": "/nils-web/static/css/main.826154c8.chunk.css.map",
     "static/media/logo.png": "/nils-web/static/media/logo.0e05e3c5.png"

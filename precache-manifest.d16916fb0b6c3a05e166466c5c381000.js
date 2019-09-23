@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "95499c6cae7a1f9ba7aebbdc96626d0a",
+    "revision": "2855e76d6b0640b07d5f41c9bd27770f",
     "url": "/nils-web/index.html"
   },
   {
-    "revision": "f77e6b0d032bb156bdde",
+    "revision": "4d96717fddbbe61bd2eb",
     "url": "/nils-web/static/css/main.826154c8.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nils-web/static/js/2.5b99bf74.chunk.js"
   },
   {
-    "revision": "f77e6b0d032bb156bdde",
-    "url": "/nils-web/static/js/main.1d7d97a0.chunk.js"
+    "revision": "4d96717fddbbe61bd2eb",
+    "url": "/nils-web/static/js/main.99623325.chunk.js"
   },
   {
     "revision": "4567d25ebd39773f47f0",
