@@ -3,6 +3,8 @@
 
 @import "~bootstrap/scss/bootstrap";
 
+$bottomGradientSpacing: 8rem;
+
 html, body {
   width: 100%;
 }
@@ -72,8 +74,6 @@ body {
 }
 
 .header {
-    padding: 1rem 2rem 6rem;
-
     a {
         color: rgba(255,255,255,0.6);
     }
@@ -85,8 +85,10 @@ body {
 }
 
 .content {
-    margin-top: -6rem;
-    padding: 0 2rem;
+  margin-top: -$bottomGradientSpacing;
+  padding: 0 1rem;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 a.dashboard-widget {
@@ -204,17 +206,19 @@ a.dashboard-widget {
     color: #fff;
     background: linear-gradient(87deg, $secondary, $secondary-dark) !important;
     position: relative;
+    overflow: hidden;
+    padding: 1rem 2rem $bottomGradientSpacing;
 
     &:after {
       content: ' ';
       display: block;
-      width: 100%;
+      width: 110%;
       background: $lighter;
-      height: 2em;
+      height: 6em;
       position: absolute;
-      bottom: -1em;
+      bottom: -2.25rem;
       left: 0;
-      transform: rotate(-1deg);
+      transform: rotate(-5deg);
     }
 }
 

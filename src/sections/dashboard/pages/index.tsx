@@ -66,7 +66,7 @@ export default () => {
           <Col xs={12} sm>
             <Counter
               title="Next payout"
-              content="-"
+              content="1st Oct 2019"
               icon="credit-card"
               iconBg="orange"
               history="Last: 5th Sep 2019"
@@ -76,7 +76,7 @@ export default () => {
           </Col>
         </Row>
       </div>
-      <Row className="content padded">
+      <Row className="content">
         <Col>
           <Table
             header='Balances'
