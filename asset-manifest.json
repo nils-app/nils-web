@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/nils-web/static/css/main.5b018851.chunk.css",
-    "main.js": "/nils-web/static/js/main.c0221be7.chunk.js",
-    "main.js.map": "/nils-web/static/js/main.c0221be7.chunk.js.map",
+    "main.css": "/nils-web/static/css/main.30e6c356.chunk.css",
+    "main.js": "/nils-web/static/js/main.bc9a9ab3.chunk.js",
+    "main.js.map": "/nils-web/static/js/main.bc9a9ab3.chunk.js.map",
     "runtime-main.js": "/nils-web/static/js/runtime-main.212573f7.js",
     "runtime-main.js.map": "/nils-web/static/js/runtime-main.212573f7.js.map",
-    "static/js/2.314156e1.chunk.js": "/nils-web/static/js/2.314156e1.chunk.js",
-    "static/js/2.314156e1.chunk.js.map": "/nils-web/static/js/2.314156e1.chunk.js.map",
+    "static/js/2.5986b731.chunk.js": "/nils-web/static/js/2.5986b731.chunk.js",
+    "static/js/2.5986b731.chunk.js.map": "/nils-web/static/js/2.5986b731.chunk.js.map",
     "index.html": "/nils-web/index.html",
-    "precache-manifest.5988aa56b3eb7cd196a76e8a2bee017c.js": "/nils-web/precache-manifest.5988aa56b3eb7cd196a76e8a2bee017c.js",
+    "precache-manifest.f1fc9b1bd6895763e9e506a5864b211a.js": "/nils-web/precache-manifest.f1fc9b1bd6895763e9e506a5864b211a.js",
     "service-worker.js": "/nils-web/service-worker.js",
-    "static/css/main.5b018851.chunk.css.map": "/nils-web/static/css/main.5b018851.chunk.css.map",
+    "static/css/main.30e6c356.chunk.css.map": "/nils-web/static/css/main.30e6c356.chunk.css.map",
     "static/media/logo.png": "/nils-web/static/media/logo.0e05e3c5.png"
   }
 }
