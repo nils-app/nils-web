@@ -4,6 +4,7 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+import Helmet from "react-helmet";
 
 import Sidebar from "./components/Sidebar";
 import Main from './pages/index';
@@ -17,6 +18,9 @@ import './index.scss';
 export default () => {
   return (
     <>
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>
       <Row noGutters className='full-height'>
         <Col xs={ 0 } sm={ 3 } lg={ 2 } className='full-height sidebar-container'>
           <Sidebar />

@@ -1,12 +1,16 @@
 import React from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Helmet from "react-helmet";
 
 import Header from "../components/Header";
 
 export default () => {
   return (
     <>
+      <Helmet>
+        <title>Settings</title>
+      </Helmet>
       <div className="header bg-gradient">
         <Header />
       </div>
