@@ -1,4 +1,7 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
+
+// Icons available in two styles, regular and solid
+// solid tends to have all free icons, while some regular ones are PRO only
 import {
     faCoins,
     faCreditCard,
@@ -10,8 +13,12 @@ import {
     faSignOutAlt,
     faSignInAlt,
     faSave,
-    faQuestionCircle
+    faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
+
+import {
+    faSmile,
+} from "@fortawesome/free-regular-svg-icons";
 
 /**
  * All icons that will be used in this app need to be preloaded here
@@ -30,5 +37,6 @@ export default () => {
     faSignInAlt,
     faSave,
     faQuestionCircle,
+    faSmile
   );
 };
