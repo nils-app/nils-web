@@ -10,8 +10,9 @@ $bottomGradientSpacing: 8rem;
 }
 
 a.dashboard-widget {
-  transition-property: box-shadow, transform;
+  transition-property: box-shadow transform;
   transition-duration: .15s;
+  text-decoration: none;
 
   &:hover {
     box-shadow: 0 10px 1.5rem 0 rgba(0,0,0,.35);

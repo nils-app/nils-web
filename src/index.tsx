@@ -10,7 +10,7 @@ import Router from "./router";
 loadIcons();
 
 const app = (
-  <BrowserRouter basename="/nils-web">
+  <BrowserRouter basename={process.env.REACT_APP_BASEPATH}>
     <Router />
   </BrowserRouter>
 );

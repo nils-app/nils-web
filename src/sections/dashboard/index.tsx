@@ -18,10 +18,10 @@ export default () => {
   return (
     <>
       <Row noGutters className='full-height'>
-        <Col xs={ 0 } sm={ 2 } className='full-height sidebar-container'>
+        <Col xs={ 0 } sm={ 3 } lg={ 2 } className='full-height sidebar-container'>
           <Sidebar />
         </Col>
-        <Col xs={ 12 } sm={ 10 }>
+        <Col xs={ 12 } sm={ 9 } lg={ 10 }>
           <Switch>
             <Route path="/dashboard/balance" component={ Balance } />
             <Route path="/dashboard/domains" component={ Domains } />
