@@ -1,37 +1,40 @@
 @import 'assets/scss/variables';
 
 header.landing {
-  height: 100%;
+  height: $bgAngleHeight + 5%;
   margin-bottom: 1rem;
 }
 
 section.content {
   padding-bottom: 5rem;
+  margin-left: 1rem;
+
+  h3.small {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    position: relative;
+    text-transform: uppercase;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: $accent;
+    margin-bottom: 2rem;
+  }
 }
 
 .hero {
   margin-top: 5rem;
   margin-left: 1rem;
-  max-width: 40rem;
-  color: fade-out(#fff, 0.3);
+  max-width: 35rem;
+  color: #fff;
 
   h2 {
-    color: white;
-    font-size: 3rem;
+    font-size: 1rem;
+    letter-spacing: 0px;
     position: relative;
-
-    &:after {
-      min-width: 100%;
-      max-width: 30rem;
-      background: fade-out($dark, 0.5);
-      height: 1.75rem;
-      display: block;
-      content: ' ';
-      position: absolute;
-      z-index: -1;
-      bottom: 0.2rem;
-      left: -1rem;
-    }
+    text-transform: uppercase;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: fade-out(#fff, 0.3);
   }
 
   h3 {
@@ -40,23 +43,8 @@ section.content {
     margin-top: 3rem;
   }
 
-  .btn {
-    margin-right: 1rem;
-    text-shadow: 0 1px 3px fade-out(#fff, 0.6);
-    box-shadow: 0 4px 6px rgba(50,50,93,.11),
-                0 1px 3px rgba(0,0,0,.08);
-  }
-
-  small {
-    font-size: 0.95rem;
-  }
-
-  .text-muted {
-    color: fade-out(#fff, 0.5) !important;
-  }
-
   p {
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: 300;
 
     b {
@@ -102,5 +90,24 @@ section.content {
     background: transparent;
     font-size: 1.2em;
     font-weight: 200;
+  }
+}
+
+.get-started {
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.1em;
+    font-weight: 200;
+    margin-top: 2em;
+  }
+
+  .btn {
+    text-shadow: 0 1px 3px fade-out(#fff, 0.6);
+    box-shadow: 0 4px 6px rgba(50,50,93,.11),
+                0 1px 3px rgba(0,0,0,.08);
+    margin-top: 2em
   }
 }

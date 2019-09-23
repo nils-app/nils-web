@@ -73,7 +73,7 @@ h4 {
 
 .bg-angle {
   width: 100%;
-  height: 100%;
+  height: $bgAngleHeight;
   overflow: hidden;
   transform: skewY(-10deg);
   transform-origin: 0;
