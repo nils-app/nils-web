@@ -18,7 +18,7 @@ export default (props: Props) => (
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Help />
-          <Nav.Link as={NavLink} to="/logout">
+          <Nav.Link as={NavLink} to="/">
             <FontAwesomeIcon icon="sign-out-alt" /> Logout
           </Nav.Link>
         </Navbar.Collapse>
