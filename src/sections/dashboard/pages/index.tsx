@@ -37,9 +37,7 @@ export default () => {
   return (
     <>
       <div className="header bg-gradient">
-        <Header
-          section='Home'
-        />
+        <Header />
         <Row>
           <Col xs={12} sm>
             <Counter
@@ -49,7 +47,7 @@ export default () => {
               iconBg="green"
               change={3.5}
               history="Since last month"
-              href="/balance"
+              href="/dashboard/balance"
               tooltip="View your monthly balance"
             />
           </Col>
@@ -59,7 +57,7 @@ export default () => {
               content="3"
               icon="at"
               iconBg="blue"
-              href="/domains"
+              href="/dashboard/domains"
               tooltip="Add/Remove Domains"
             />
           </Col>
@@ -70,7 +68,7 @@ export default () => {
               icon="credit-card"
               iconBg="orange"
               history="Last: 5th Sep 2019"
-              href="/settings"
+              href="/dashboard/payouts"
               tooltip="View your payout settings and history"
             />
           </Col>

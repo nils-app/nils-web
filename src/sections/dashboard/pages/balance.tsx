@@ -13,7 +13,7 @@ export default () => {
       <Row className="content padded">
         <Col>
           <div className="dashboard-widget">
-            <h2>Settings</h2>
+            <h2>Balance history</h2>
             <Form>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>

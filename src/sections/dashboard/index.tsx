@@ -7,6 +7,9 @@ import {
 
 import Sidebar from "./components/Sidebar";
 import Main from './pages/index';
+import Balance from './pages/balance';
+import Payouts from './pages/payouts';
+import Domains from './pages/domains';
 import Settings from './pages/settings';
 
 export default () => {
@@ -18,6 +21,9 @@ export default () => {
         </Col>
         <Col xs={ 12 } sm={ 10 }>
           <Switch>
+            <Route path="/dashboard/balance" component={ Balance } />
+            <Route path="/dashboard/domains" component={ Domains } />
+            <Route path="/dashboard/payouts" component={ Payouts } />
             <Route path="/dashboard/settings" component={ Settings } />
             <Route path="/dashboard/" component={ Main } />
           </Switch>

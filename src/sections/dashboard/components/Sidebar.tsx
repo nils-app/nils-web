@@ -19,6 +19,21 @@ const sections: Section[] = [
     icon: 'columns',
   },
   {
+    link: 'balance',
+    text: 'Balance history',
+    icon: 'coins',
+  },
+  {
+    link: 'domains',
+    text: 'Domains',
+    icon: 'at',
+  },
+  {
+    link: 'payouts',
+    text: 'Payouts',
+    icon: 'credit-card',
+  },
+  {
     link: 'settings',
     text: 'Settings',
     icon: 'cog',
