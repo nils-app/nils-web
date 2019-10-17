@@ -4,12 +4,15 @@ import Helmet from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Navbar from "components/Navbar";
+import { useStateValue } from "store/state";
 
 import "./index.scss";
 
 const providers = ['Github', 'Google'];
 
 export default () => {
+  const { state } = useStateValue();
+
   return (
     <>
       <Helmet>
@@ -23,7 +26,7 @@ export default () => {
             <Row>
               <Col md={{ span: 6, offset: 3 }}>
                 <div className='login-form shadow text-center'>
-                  <h2 className='mb-5'>Sign in</h2>
+                  <h2 className='mb-5'>Sign in: { state.user }</h2>
                   { providers.map(provider => {
                     const providerName: any = provider.toLowerCase();
                     return (
