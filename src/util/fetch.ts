@@ -24,27 +24,7 @@ function useFetch<T>(path: string, method: FetchMethod, body?: any): FetchReturn
   useEffect(() => {
     const sendRequest = async () => {
       try {
-        if (!path) {
-          throw new Error(`'url' is required for fetching data`);
-        }
-
-        const url = `http://nils.local${path}`;
-        const options: AxiosRequestConfig = {
-          url,
-          method,
-          data: body,
-          timeout: 6000,
-          withCredentials: true,
-          xsrfHeaderName: 'X-CSRF-Token'
-        };
-
-        console.log('fetch options', options);
-
-        const response = await axios(options);
-        console.log('fetch response', response);
-
-        const data: any = await response.data;
-
+        const data = await fetchResource(path, method, body);
         setResponse(data);
       } catch (error) {
         if (error.response) {
@@ -72,6 +52,24 @@ function useFetch<T>(path: string, method: FetchMethod, body?: any): FetchReturn
   }, [path, method, body]);
 
   return [loading, response, error];
+};
+
+export const fetchResource = async (path: string, method: FetchMethod, body?: any) => {
+  if (!path) {
+    throw new Error(`'url' is required for fetching data`);
+  }
+
+  const url = `http://nils.local${path}`;
+  const options: AxiosRequestConfig = {
+    url,
+    method,
+    data: body,
+    timeout: 6000,
+    withCredentials: true,
+  };
+
+  const response = await axios(options);
+  return await response.data;
 };
 
 export default useFetch;

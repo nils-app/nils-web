@@ -9,8 +9,10 @@ export type User = {
 
 export type AppState = {
   auth: {
+    checked: boolean,
     loggedIn: boolean,
     user: User | null,
+    csrf: string | null,
   },
 };
 
@@ -21,11 +23,16 @@ export type AppContext = {
 
 const initialState: AppState = {
   auth: {
+    checked: false,
     loggedIn: false,
     user: null,
+    csrf: null,
   },
 };
-const defaultDispatch: React.Dispatch<Action> = () => initialState // we never actually use this
+const defaultDispatch: React.Dispatch<Action> = () => {
+  console.warn('Using default reducer, check StateProvider');
+  return initialState;
+}
 export const StateContext = React.createContext<AppContext>({
   state: initialState,
   dispatch: defaultDispatch,

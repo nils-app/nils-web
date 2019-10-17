@@ -1,3 +1,5 @@
+import produce from "immer"
+
 import { AppState } from "./state";
 
 export type Action = {
@@ -5,15 +7,14 @@ export type Action = {
   payload?: any,
 };
 
-export default (state: AppState, action: Action): AppState => {
+export default produce((draft: AppState, action: Action) => {
   console.info('REDUCER', action);
   switch (action.type) {
     case 'login':
-      state.auth.loggedIn = true;
-      state.auth.user = action.payload;
+      draft.auth.checked = true;
+      draft.auth.loggedIn = true;
+      draft.auth.user = action.payload.user;
+      draft.auth.csrf = action.payload.csrf;
       break;
-    default:
-      return state;
   }
-  return state;
-};
+});

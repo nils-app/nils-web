@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
+import { StateProvider } from "store/state";
+
 import "assets/scss/index.scss";
 
 import loadIcons from "./lib/icons";
@@ -15,7 +17,9 @@ const app = (
     <Helmet
       titleTemplate='%s | Nils'
     />
-    <Router />
+    <StateProvider>
+      <Router />
+    </StateProvider>
   </BrowserRouter>
 );
 

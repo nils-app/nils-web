@@ -1,7 +1,7 @@
 @import 'assets/scss/variables';
 
 .navbar.main {
-  a {
+  a, .nav-item {
     color: fade-out(#fff, 0.2);
 
     &.active {
