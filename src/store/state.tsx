@@ -1,6 +1,6 @@
 import React from 'react';
 
-import reducer from './reducer';
+import reducer, { Action } from './reducer';
 
 export type AppState = {
   user: string,
@@ -8,13 +8,13 @@ export type AppState = {
 
 export type AppContext = {
   state: AppState,
-  dispatch: React.Dispatch<React.SetStateAction<any>>,
+  dispatch: React.Dispatch<Action>,
 };
 
 const initialState: AppState = {
   user: 'alex',
 };
-const defaultDispatch: React.Dispatch<React.SetStateAction<any>> = () => initialState // we never actually use this
+const defaultDispatch: React.Dispatch<Action> = () => initialState // we never actually use this
 export const StateContext = React.createContext<AppContext>({
   state: initialState,
   dispatch: defaultDispatch,
