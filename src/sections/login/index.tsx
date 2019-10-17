@@ -26,7 +26,7 @@ export default () => {
             <Row>
               <Col md={{ span: 6, offset: 3 }}>
                 <div className='login-form shadow text-center'>
-                  <h2 className='mb-5'>Sign in: { state.user }</h2>
+                  <h2 className='mb-5'>Sign in: { state.auth.loggedIn }</h2>
                   { providers.map(provider => {
                     const providerName: any = provider.toLowerCase();
                     return (

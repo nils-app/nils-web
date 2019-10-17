@@ -2,8 +2,16 @@ import React from 'react';
 
 import reducer, { Action } from './reducer';
 
+type User = {
+  uuid: string,
+  email: string,
+};
+
 export type AppState = {
-  user: string,
+  auth: {
+    loggedIn: boolean,
+    user: User | null,
+  },
 };
 
 export type AppContext = {
@@ -12,7 +20,10 @@ export type AppContext = {
 };
 
 const initialState: AppState = {
-  user: 'alex',
+  auth: {
+    loggedIn: false,
+    user: null,
+  },
 };
 const defaultDispatch: React.Dispatch<Action> = () => initialState // we never actually use this
 export const StateContext = React.createContext<AppContext>({
