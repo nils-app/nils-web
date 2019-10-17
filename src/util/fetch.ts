@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios, { AxiosRequestConfig } from 'axios';
 
+import { API_URL } from '../constants';
+
 export type FetchMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
 type FetchError = {
@@ -59,7 +61,7 @@ export const fetchResource = async (path: string, method: FetchMethod, body?: an
     throw new Error(`'url' is required for fetching data`);
   }
 
-  const url = `http://nils.local${path}`;
+  const url = `${API_URL}${path}`;
   const options: AxiosRequestConfig = {
     url,
     method,

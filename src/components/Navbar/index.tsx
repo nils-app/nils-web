@@ -25,7 +25,7 @@ export default () => {
           </Nav.Link>
           {(!checkedLogin) && (
             <Nav.Item>
-              <FontAwesomeIcon icon="spinner" pulse /> Loading...
+              <FontAwesomeIcon icon="spinner" pulse />
             </Nav.Item>
           )}
           {(checkedLogin && !loggedIn) && (

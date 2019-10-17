@@ -1,8 +1,8 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Row, Col, Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router-dom";
 
+import { API_URL } from '../../../../constants';
 import Help from '../Help';
 import './index.scss';
 
@@ -10,19 +10,13 @@ type Props = {
 };
 
 export default (props: Props) => {
-  const signOut = useCallback((e: MouseEvent) => {
-    e.preventDefault();
-
-
-  }, []);
-
   return (
     <Row className='header'>
       <Col>
         <Navbar bg="transparent" variant="dark">
           <Navbar.Collapse className="justify-content-end">
             <Help />
-            <Nav.Link as='a' href='/' onClick={ signOut }>
+            <Nav.Link as='a' href={ `${API_URL}/users/logout` }>
               <FontAwesomeIcon icon="sign-out-alt" /> Sign Out
             </Nav.Link>
           </Navbar.Collapse>

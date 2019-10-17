@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { API_URL } from "../../constants";
 import Navbar from "components/Navbar";
 import "./index.scss";
 
@@ -29,7 +30,7 @@ export default () => {
                   return (
                     <a
                       key={ provider }
-                      href={ `http://nils.local/auth/${providerName}?returnTo=http://localhost:3000/login` }
+                      href={ `${API_URL}/auth/${providerName}?returnTo=http://localhost:3000/dashboard` }
                       className={ classNames('btn', `btn-${providerName}`, 'mb-4', 'mx-2') }
                     >
                       <FontAwesomeIcon icon={ ['fab', providerName] } />

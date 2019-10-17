@@ -12,12 +12,21 @@ function useCheckLogin() {
       fetchResource('/users/current', 'GET').then(data => {
         if (!data || !data.user.uuid) {
           console.warn('Invalid user object');
+          dispatch({
+            type: 'login',
+            payload: null,
+          })
           return;
         }
 
         dispatch({
           type: 'login',
           payload: data,
+        })
+      }).catch(reason => {
+        dispatch({
+          type: 'login',
+          payload: null,
         })
       });
     }
