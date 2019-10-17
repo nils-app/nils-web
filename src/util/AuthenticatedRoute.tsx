@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Redirect } from "react-router-dom";
 import { useStateValue } from 'store/state';
 
+import Loading from 'sections/loading';
+
 type Props = {
   path: string,
   exact?: boolean,
@@ -13,6 +15,12 @@ type Props = {
  */
 export default (props: Props) => {
   const { state } = useStateValue();
+  if (!state.auth.checked) {
+    return (
+      <Loading />
+    );
+  }
+
   if (!state.auth.loggedIn) {
     return (
       <Redirect to='/login' />

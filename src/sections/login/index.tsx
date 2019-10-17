@@ -1,51 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Helmet from "react-helmet";
+import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Navbar from "components/Navbar";
-import LoginForm from './form';
-import { useStateValue, User } from "store/state";
-
 import "./index.scss";
-import useFetch from "util/fetch";
+
+const providers = ['Github', 'Google'];
 
 export default () => {
-  const { dispatch } = useStateValue();
-  const [ isLoading, user, hasError ] = useFetch<User>(
-    '/users/current',
-    'GET'
-  );
-
-  useEffect(() => {
-    if (!user) {
-      return;
-    }
-    dispatch({
-      type: 'login',
-      payload: user,
-    })
-  }, [user, dispatch])
-
-  let content = null;
-  if (hasError && hasError.status !== 401) {
-    content = (
-      <div>
-        <p>Errors!</p>
-        <p>{ hasError.message }</p>
-      </div>
-    );
-  } else if (isLoading) {
-    content = (
-      <p className="text-muted">
-        <FontAwesomeIcon icon='spinner' pulse /> Loading...
-      </p>
-    );
-  } else {
-    content = <LoginForm />;
-  }
-
   return (
     <>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <header>
         <div className="bg-angle" />
         <section>
@@ -54,7 +23,26 @@ export default () => {
             <Row>
               <Col md={{ span: 6, offset: 3 }}>
                 <div className='login-form shadow text-center'>
-                  { content }
+                <h2 className='mb-5'>Sign in</h2>
+                { providers.map((provider) => {
+                  const providerName: any = provider.toLowerCase();
+                  return (
+                    <a
+                      key={ provider }
+                      href={ `http://nils.local/auth/${providerName}?returnTo=http://localhost:3000/login` }
+                      className={ classNames('btn', `btn-${providerName}`, 'mb-4', 'mx-2') }
+                    >
+                      <FontAwesomeIcon icon={ ['fab', providerName] } />
+                      Sign in with { provider }
+                    </a>
+                  );
+                }) }
+                <hr className='mt-5 mb-4' />
+                <p className='text-muted'>
+                  <small>
+                  We'll create an account for you if it's your first time signing in.
+                  </small>
+                </p>
                 </div>
               </Col>
             </Row>
