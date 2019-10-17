@@ -43,7 +43,7 @@ export default () => {
                   <hr className='mt-5 mb-4' />
                   <p className='text-muted'>
                     <small>
-                    We will create an account for you if it's the first time you sign in.
+                    We'll create an account for you if it's your first time signing in.
                     </small>
                   </p>
                 </div>
