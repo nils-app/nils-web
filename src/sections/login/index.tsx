@@ -1,23 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Helmet from "react-helmet";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Navbar from "components/Navbar";
-import { useStateValue } from "store/state";
+import LoginForm from './form';
+import { useStateValue, User } from "store/state";
 
 import "./index.scss";
+import useFetch, { FetchOptions } from "util/fetch";
 
-const providers = ['Github', 'Google'];
+// TODO Find better way to memoize this inside the component
+const getUser: FetchOptions = {
+  url: '/users/current',
+  method: 'GET',
+};
 
 export default () => {
-  const { state } = useStateValue();
+  const { dispatch } = useStateValue();
+  const [ isLoading, user, hasError ] = useFetch<User>(getUser);
+
+  useEffect(() => {
+    if (!user) {
+      return;
+    }
+    dispatch({
+      type: 'login',
+      payload: user,
+    })
+  }, [user, dispatch])
+
+  let content = null;
+  if (hasError) {
+    content = (
+      <div>
+        <p>Errors!</p>
+        <p>{ hasError }</p>
+      </div>
+    );
+  } else if (isLoading) {
+    content = (
+      <p>Loading...</p>
+    );
+  } else {
+    content = <LoginForm />;
+  }
 
   return (
     <>
-      <Helmet>
-        <title>Login</title>
-      </Helmet>
       <header>
         <div className="bg-angle" />
         <section>
@@ -26,26 +54,7 @@ export default () => {
             <Row>
               <Col md={{ span: 6, offset: 3 }}>
                 <div className='login-form shadow text-center'>
-                  <h2 className='mb-5'>Sign in: { state.auth.loggedIn }</h2>
-                  { providers.map(provider => {
-                    const providerName: any = provider.toLowerCase();
-                    return (
-                      <a
-                        key={ provider }
-                        href={ `http://nils.local/auth/${providerName}?returnTo=http://localhost:3000/dashboard` }
-                        className={ `btn btn-${providerName} mr-2` }
-                      >
-                        <FontAwesomeIcon icon={ ['fab', providerName] } />
-                        Sign in with { provider }
-                      </a>
-                    );
-                  }) }
-                  <hr className='mt-5 mb-4' />
-                  <p className='text-muted'>
-                    <small>
-                    We'll create an account for you if it's your first time signing in.
-                    </small>
-                  </p>
+                  { content }
                 </div>
               </Col>
             </Row>

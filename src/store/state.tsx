@@ -2,7 +2,7 @@ import React from 'react';
 
 import reducer, { Action } from './reducer';
 
-type User = {
+export type User = {
   uuid: string,
   email: string,
 };

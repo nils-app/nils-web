@@ -6,6 +6,7 @@ export type Action = {
 };
 
 export default (state: AppState, action: Action) => {
+  console.info('REDUCER', action);
   switch (action.type) {
     default:
       return state;
