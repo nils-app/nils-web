@@ -1,46 +1,67 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
-export type FetchOptions = {
-  url: string,
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE',
-  timeout?: number,
-  data?: any,
+export type FetchMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
+
+type FetchError = {
+  status: number,
+  message: string,
 };
 
 type FetchReturn<T> = [
   boolean,
   T | null,
-  string | null,
+  FetchError | null,
 ];
 
-function useFetch<T>(defaultOptions: FetchOptions): FetchReturn<T> {
-  const [error, setError] = useState<string | null>(null);
+axios.defaults.withCredentials = true;
+
+function useFetch<T>(path: string, method: FetchMethod, body?: any): FetchReturn<T> {
+  const [error, setError] = useState<FetchError | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [response, setResponse] = useState<T | null>(null);
 
   useEffect(() => {
     const sendRequest = async () => {
       try {
-        if (!defaultOptions.url) {
+        if (!path) {
           throw new Error(`'url' is required for fetching data`);
         }
 
-        const options = {
-          ...defaultOptions,
-          url: `http://nils.local${defaultOptions.url}`,
-          timeout: defaultOptions.timeout || 3000,
+        const url = `http://nils.local${path}`;
+        const options: AxiosRequestConfig = {
+          url,
+          method,
+          data: body,
+          timeout: 6000,
+          withCredentials: true,
+          xsrfHeaderName: 'X-CSRF-Token'
         };
 
         console.log('fetch options', options);
 
         const response = await axios(options);
-        const data: any = await response.data();
+        console.log('fetch response', response);
+
+        const data: any = await response.data;
 
         setResponse(data);
       } catch (error) {
-        console.warn('useFetch error', error);
-        setError(error.message);
+        if (error.response) {
+          console.warn('useFetch error', error.response);
+          const returnError: FetchError = {
+            status: error.response.status,
+            message: error.message,
+          };
+          setError(returnError);
+        } else {
+          console.warn('useFetch error', error);
+          const returnError: FetchError = {
+            status: 500,
+            message: error.message,
+          };
+          setError(returnError);
+        }
       } finally {
         setLoading(false);
       }
@@ -48,7 +69,7 @@ function useFetch<T>(defaultOptions: FetchOptions): FetchReturn<T> {
 
     sendRequest();
 
-  }, [defaultOptions]);
+  }, [path, method, body]);
 
   return [loading, response, error];
 };

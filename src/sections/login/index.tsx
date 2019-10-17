@@ -1,22 +1,20 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Navbar from "components/Navbar";
 import LoginForm from './form';
 import { useStateValue, User } from "store/state";
 
 import "./index.scss";
-import useFetch, { FetchOptions } from "util/fetch";
-
-// TODO Find better way to memoize this inside the component
-const getUser: FetchOptions = {
-  url: '/users/current',
-  method: 'GET',
-};
+import useFetch from "util/fetch";
 
 export default () => {
   const { dispatch } = useStateValue();
-  const [ isLoading, user, hasError ] = useFetch<User>(getUser);
+  const [ isLoading, user, hasError ] = useFetch<User>(
+    '/users/current',
+    'GET'
+  );
 
   useEffect(() => {
     if (!user) {
@@ -29,16 +27,18 @@ export default () => {
   }, [user, dispatch])
 
   let content = null;
-  if (hasError) {
+  if (hasError && hasError.status !== 401) {
     content = (
       <div>
         <p>Errors!</p>
-        <p>{ hasError }</p>
+        <p>{ hasError.message }</p>
       </div>
     );
   } else if (isLoading) {
     content = (
-      <p>Loading...</p>
+      <p className="text-muted">
+        <FontAwesomeIcon icon='spinner' pulse /> Loading...
+      </p>
     );
   } else {
     content = <LoginForm />;

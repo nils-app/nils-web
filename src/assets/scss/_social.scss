@@ -9,8 +9,10 @@
 
   &:hover {
     background-color: darken($color-bg, 10%);
-    border-color: darken($color-bg, 10%);
+    border-color: white;
     color: $color;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem fade-out($color-bg, 0.9);
   }
 
   .svg-inline--fa {
