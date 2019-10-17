@@ -3,6 +3,10 @@
 .navbar.main {
   a {
     color: fade-out(#fff, 0.2);
+
+    &.active {
+      color: #fff;
+    }
   }
 
   .nils-logo {

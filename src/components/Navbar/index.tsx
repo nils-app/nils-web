@@ -15,11 +15,11 @@ export default () => {
           <Logo /> Nils
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
-          <Nav.Link as={NavLink} to="/dashboard">
-            Dashboard
+          <Nav.Link as={NavLink} to="/" exact>
+            Home
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/login">
-            <FontAwesomeIcon icon="sign-in-alt" /> Login
+          <Nav.Link as={NavLink} to="/login" exact>
+            <FontAwesomeIcon icon="sign-in-alt" /> Sign In
           </Nav.Link>
         </Navbar.Collapse>
       </Container>

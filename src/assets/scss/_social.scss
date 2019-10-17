@@ -1,0 +1,35 @@
+.btn-social {
+  height: 2em;
+}
+
+@mixin btn-social($color-bg, $color: #fff) {
+  background-color: $color-bg;
+  border-color: $color-bg;
+  color: $color;
+
+  &:hover {
+    background-color: darken($color-bg, 10%);
+    border-color: darken($color-bg, 10%);
+    color: $color;
+  }
+
+  .svg-inline--fa {
+    margin-right: 1em;
+  }
+}
+
+.btn-facebook {
+   @include btn-social(#3b5998);
+}
+
+.btn-reddit {
+   @include btn-social(#eff7ff);
+}
+
+.btn-github {
+   @include btn-social(#444444);
+}
+
+.btn-google {
+   @include btn-social(#dd4b39);
+}

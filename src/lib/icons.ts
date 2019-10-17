@@ -22,11 +22,18 @@ import {
     faSmile,
 } from "@fortawesome/free-regular-svg-icons";
 
+import {
+    faGoogle,
+    faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+
 /**
  * All icons that will be used in this app need to be preloaded here
  */
 
 export default () => {
+  const faGoogleFix: any = faGoogle;
+  const faGithubFix: any = faGithub;
   library.add(
     faCoins,
     faCreditCard,
@@ -42,5 +49,7 @@ export default () => {
     faSmile,
     faHeart,
     faAngleRight,
+    faGoogleFix,
+    faGithubFix,
   );
 };

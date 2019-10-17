@@ -13,13 +13,10 @@ export default (props: Props) => (
   <Row className='header'>
     <Col>
       <Navbar bg="transparent" variant="dark">
-        <Navbar.Brand as={NavLink} to="/dashboard">
-          Dashboard
-        </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Help />
           <Nav.Link as={NavLink} to="/">
-            <FontAwesomeIcon icon="sign-out-alt" /> Logout
+            <FontAwesomeIcon icon="sign-out-alt" /> Sign Out
           </Nav.Link>
         </Navbar.Collapse>
       </Navbar>

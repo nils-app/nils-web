@@ -1,9 +1,13 @@
 import React from "react";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import Navbar from "components/Navbar";
+import { Container, Row, Col } from "react-bootstrap";
 import Helmet from "react-helmet";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import Navbar from "components/Navbar";
 
 import "./index.scss";
+
+const providers = ['Github', 'Google'];
 
 export default () => {
   return (
@@ -18,22 +22,28 @@ export default () => {
           <Container>
             <Row>
               <Col md={{ span: 6, offset: 3 }}>
-                <Form className='login-form shadow'>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                  </Form.Group>
-
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                  </Form.Group>
-                  <p className="text-center">
-                    <Button variant="secondary" type="submit">
-                      Login
-                    </Button>
+                <div className='login-form shadow text-center'>
+                  <h2 className='mb-5'>Sign in</h2>
+                  { providers.map(provider => {
+                    const providerName: any = provider.toLowerCase();
+                    return (
+                      <a
+                        key={ provider }
+                        href={ `http://nils.local/auth/${providerName}?returnTo=http://localhost:3000/dashboard` }
+                        className={ `btn btn-${providerName} mr-2` }
+                      >
+                        <FontAwesomeIcon icon={ ['fab', providerName] } />
+                        Sign in with { provider }
+                      </a>
+                    );
+                  }) }
+                  <hr className='mt-5 mb-4' />
+                  <p className='text-muted'>
+                    <small>
+                    We will create an account for you if it's the first time you sign in.
+                    </small>
                   </p>
-                </Form>
+                </div>
               </Col>
             </Row>
           </Container>
