@@ -23,7 +23,7 @@ export default () => {
         payload: balance,
       })
     }
-  }, [balance]);
+  }, [balance, dispatch]);
 
   const balancesColumns = [
     'Domain',

@@ -1,9 +1,9 @@
 import React from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Row, Col } from "react-bootstrap";
 import Helmet from "react-helmet";
 
 import Header from "../components/Header";
+import AddDomain from "./AddDomain";
 import { useStateValue } from "store/state";
 
 export default () => {
@@ -25,9 +25,7 @@ export default () => {
                 <h2>Domains</h2>
               </Col>
               <Col className='text-right'>
-                <Button variant='secondary' size='sm'>
-                  <FontAwesomeIcon icon='plus' /> Add
-                </Button>
+                <AddDomain />
               </Col>
             </Row>
 
