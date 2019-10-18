@@ -17,12 +17,25 @@ html, body, #root, .full-height {
   height: 100%;
 }
 
-.navbar-brand, h1, h2, h3 {
+.navbar-brand, h1, h2 {
   font-family: $headingFont;
 }
 
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  letter-spacing: .025em;
+}
+
 h4 {
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .025em;
@@ -88,4 +101,12 @@ h4 {
   border-left: $accent 0.5em solid;
   background: fade-out(#fff, 0.6);
   padding: 1em;
+}
+
+pre.code {
+  background: #efefef;
+  display: block;
+  padding: 0.25em 0.5em;
+  font-size: 0.9rem;
+  color: #555;
 }
