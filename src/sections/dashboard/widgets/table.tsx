@@ -4,7 +4,7 @@ type Props = {
   header: string,
   columns: string[],
   data: Array<{
-    [ key: string ]: string,
+    [ key: string ]: any,
   }>,
 };
 
@@ -25,7 +25,7 @@ export default (props: Props) => {
             {props.data.map((row, $index) => (
                 <tr key={ $index }>
                   {props.columns.map(column => (
-                    <td key={column}>{row[column]}</td>
+                    <td key={column}>{row[column.toLowerCase()]}</td>
                   ))}
                 </tr>
             ))}

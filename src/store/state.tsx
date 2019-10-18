@@ -1,25 +1,7 @@
 import React from 'react';
 
-import reducer, { Action } from './reducer';
-
-export type User = {
-  uuid: string,
-  email: string,
-};
-
-export type AppState = {
-  auth: {
-    checked: boolean,
-    loggedIn: boolean,
-    user: User | null,
-    csrf: string | null,
-  },
-};
-
-export type AppContext = {
-  state: AppState,
-  dispatch: React.Dispatch<Action>,
-};
+import reducer from './reducer';
+import { AppState, AppContext, Action } from './types';
 
 const initialState: AppState = {
   auth: {
@@ -28,6 +10,7 @@ const initialState: AppState = {
     user: null,
     csrf: null,
   },
+  domains: [],
 };
 const defaultDispatch: React.Dispatch<Action> = () => {
   console.warn('Using default reducer, check StateProvider');

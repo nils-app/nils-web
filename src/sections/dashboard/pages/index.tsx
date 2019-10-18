@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
+
+import { useStateValue } from "store/state";
 
 import Header from "../components/Header";
 import Counter from "../widgets/counter";
 import Table from "../widgets/table";
+import useFetch from "util/fetch";
 
 export default () => {
+  const { state, dispatch } = useStateValue();
+
+  // Fetch newer data
+  const [, balance,] = useFetch<any>(
+    '/users/balance',
+    'GET',
+  );
+  useEffect(() => {
+    if (balance) {
+      dispatch({
+        type: 'balance',
+        payload: balance,
+      })
+    }
+  }, [balance]);
+
   const balancesColumns = [
     'Domain',
     'Balance',
   ];
-  const balancesData = [
-    {
-      Domain: 'aurbano.eu',
-      Balance: '104 Nils',
-    },
-    {
-      Domain: 'nilsapp',
-      Balance: '500 Nils',
-    },
-  ];
+  let balancesData = state.domains;
 
   const payoutColumns = [
     'Reference',
@@ -28,9 +38,9 @@ export default () => {
   ];
   const payoutData = [
     {
-      Reference: 'NILS420',
-      Date: '5th Sep 2019',
-      Amount: '£10',
+      reference: 'NILS420',
+      date: '5th Sep 2019',
+      amount: '£10',
     },
   ];
 
@@ -54,7 +64,7 @@ export default () => {
           <Col xs={12} sm>
             <Counter
               title="Domains"
-              content="3"
+              content={ state.domains.length }
               icon="at"
               iconBg="blue"
               href="/dashboard/domains"

@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Helmet from "react-helmet";
 
 import Header from "../components/Header";
+import { useStateValue } from "store/state";
 
 export default () => {
+  const { state } = useStateValue();
+
   return (
     <>
       <Helmet>
@@ -17,27 +20,41 @@ export default () => {
       <Row className="content padded">
         <Col>
           <div className="dashboard-widget">
-            <h2>Domains</h2>
-            <Form>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
-              </Form.Group>
+            <Row>
+              <Col>
+                <h2>Domains</h2>
+              </Col>
+              <Col className='text-right'>
+                <Button variant='secondary' size='sm'>
+                  <FontAwesomeIcon icon='plus' /> Add
+                </Button>
+              </Col>
+            </Row>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                <FontAwesomeIcon icon='save'/> Save changes
-              </Button>
-            </Form>
+            <table className="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>
+                    Domain
+                  </th>
+                  <th>
+                    Balance
+                  </th>
+                  <th>
+                    Added on
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                { state.domains.map(domain => (
+                  <tr key={ domain.uuid }>
+                    <td>{ domain.domain }</td>
+                    <td>{ domain.balance }</td>
+                    <td>{ domain.created_on }</td>
+                  </tr>
+                )) }
+              </tbody>
+            </table>
           </div>
         </Col>
       </Row>

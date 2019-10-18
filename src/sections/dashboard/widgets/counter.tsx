@@ -7,7 +7,7 @@ import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
 type Props = {
   title: string;
-  content: string;
+  content: string | number;
   icon?: IconProp;
   iconBg?: "blue" | "orange" | "green";
   change?: number;

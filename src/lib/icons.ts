@@ -17,6 +17,7 @@ import {
     faHeart,
     faAngleRight,
     faSpinner,
+    faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -53,5 +54,6 @@ export default () => {
     faGoogleFix,
     faGithubFix,
     faSpinner,
+    faPlus,
   );
 };

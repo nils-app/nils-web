@@ -4,6 +4,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { API_URL } from '../constants';
 
 export type FetchMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
+export const CSRF_HEADER = 'X-CSRF-Token';
 
 type FetchError = {
   status: number,
@@ -68,6 +69,7 @@ export const fetchResource = async (path: string, method: FetchMethod, body?: an
     data: body,
     timeout: 6000,
     withCredentials: true,
+    xsrfHeaderName: CSRF_HEADER,
   };
 
   const response = await axios(options);
