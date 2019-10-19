@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import useFetch from "util/fetch";
+import { useStateValue } from "store/state";
 
 type Props = {
   domain: string;
@@ -11,10 +12,21 @@ type Props = {
 };
 
 export default (props: Props) => {
-  const [isLoading, , hasError] = useFetch<any>(
+  const { dispatch } = useStateValue();
+  const [isLoading, newDomain, hasError] = useFetch<any>(
     `/domains/verify/${props.domain}`,
     'POST',
   );
+
+  useEffect(() => {
+    if (!newDomain) {
+      return;
+    }
+    dispatch({
+      type: 'addDomain',
+      payload: newDomain,
+    });
+  }, [newDomain, dispatch]);
 
   let content;
   if (isLoading) {
@@ -26,8 +38,9 @@ export default (props: Props) => {
   } else if (hasError) {
     content = (
       <>
-        <Alert variant='danger'>
-          <p><b>Verification failed</b></p>
+        <Alert variant='warning'>
+          <h4>Verification failed</h4>
+          <p>{ hasError.message }</p>
           <p>Please double check your verification method and try again.</p>
           <p>If using DNS verification changes may take up to 24h to propagate.</p>
         </Alert>

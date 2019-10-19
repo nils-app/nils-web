@@ -18,6 +18,7 @@ import {
     faAngleRight,
     faSpinner,
     faPlus,
+    faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -55,5 +56,6 @@ export default () => {
     faGithubFix,
     faSpinner,
     faPlus,
+    faTrash,
   );
 };

@@ -110,3 +110,19 @@ pre.code {
   font-size: 0.9rem;
   color: #555;
 }
+
+
+
+.hover-show {
+  .hide {
+    display: none;
+  }
+
+  &:hover .hide {
+    display: block;
+  }
+}
+
+.btn-link {
+  padding: 0 !important;
+}

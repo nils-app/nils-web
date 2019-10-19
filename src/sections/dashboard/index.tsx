@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router";
 import {
   Row,
   Col,
 } from "react-bootstrap";
 import Helmet from "react-helmet";
+
+import { useStateValue } from "store/state";
+import useFetch from "util/fetch";
 
 import Sidebar from "./components/Sidebar";
 import Main from './pages/index';
@@ -16,6 +19,22 @@ import Settings from './pages/settings';
 import './index.scss';
 
 export default () => {
+  const { dispatch } = useStateValue();
+
+  // Fetch newer data
+  const [, balance,] = useFetch<any>(
+    '/users/balance',
+    'GET',
+  );
+  useEffect(() => {
+    if (balance) {
+      dispatch({
+        type: 'balance',
+        payload: balance,
+      })
+    }
+  }, [balance, dispatch]);
+
   return (
     <>
       <Helmet>

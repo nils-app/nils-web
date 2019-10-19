@@ -31,17 +31,11 @@ function useFetch<T>(path: string, method: FetchMethod, body?: any): FetchReturn
         const data = await fetchResource(path, method, body);
         setResponse(data);
       } catch (error) {
-        if (error.data) {
-          const returnError: FetchError = {
-            status: error.response.status,
-            message: error.data.errors.join(', '),
-          };
-          setError(returnError);
-        } else if (error.response) {
+        if (error.response) {
           console.warn('useFetch error', error.response);
           const returnError: FetchError = {
             status: error.response.status,
-            message: error.message,
+            message: error.response.data ? error.response.data.errors.join(', ') : error.message,
           };
           setError(returnError);
         } else {

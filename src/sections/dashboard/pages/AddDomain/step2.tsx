@@ -30,9 +30,14 @@ export default (props: Props) => {
     return (
       <>
         <h3>Verify ownership</h3>
-        <Alert variant='danger'>
-          <b>Error:</b> { hasError.message }
+        <Alert variant='warning'>
+          { hasError.message }
         </Alert>
+        <p className="text-center">
+          <Button variant="light" size="sm" onClick={props.prev}>
+            Back
+          </Button>
+        </p>
       </>
     );
   }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 import { useStateValue } from "store/state";
@@ -6,24 +6,9 @@ import { useStateValue } from "store/state";
 import Header from "../components/Header";
 import Counter from "../widgets/counter";
 import Table from "../widgets/table";
-import useFetch from "util/fetch";
 
 export default () => {
-  const { state, dispatch } = useStateValue();
-
-  // Fetch newer data
-  const [, balance,] = useFetch<any>(
-    '/users/balance',
-    'GET',
-  );
-  useEffect(() => {
-    if (balance) {
-      dispatch({
-        type: 'balance',
-        payload: balance,
-      })
-    }
-  }, [balance, dispatch]);
+  const { state } = useStateValue();
 
   const balancesColumns = [
     'Domain',

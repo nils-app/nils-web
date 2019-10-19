@@ -4,10 +4,18 @@ import Helmet from "react-helmet";
 
 import Header from "../components/Header";
 import AddDomain from "./AddDomain";
+import DeleteDomain from "./DeleteDomain";
 import { useStateValue } from "store/state";
 
 export default () => {
   const { state } = useStateValue();
+
+  const locale = undefined;
+  const dateOpts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+  const onDelete = (uuid: string) => () => {
+    console.log('delete domain', uuid);
+  };
 
   return (
     <>
@@ -41,14 +49,25 @@ export default () => {
                   <th>
                     Added on
                   </th>
+                  <th style={ { width: 100 } }>
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 { state.domains.map(domain => (
-                  <tr key={ domain.uuid }>
+                  <tr key={ domain.uuid } className='hover-show'>
                     <td>{ domain.domain }</td>
                     <td>{ domain.balance }</td>
-                    <td>{ domain.created_on }</td>
+                    <td>{ (new Date(domain.created_on)).toLocaleDateString(locale, dateOpts) }</td>
+                    <td className='text-rigth'>
+                      <span className='hide text-danger'>
+                        <DeleteDomain
+                          name={ domain.domain }
+                          onConfirm={ onDelete(domain.uuid) }
+                        />
+                      </span>
+                    </td>
                   </tr>
                 )) }
               </tbody>

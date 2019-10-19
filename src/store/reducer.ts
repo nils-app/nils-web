@@ -23,5 +23,8 @@ export default produce((draft: AppState, action: Action) => {
       }
       draft.domains = action.payload.domains;
       break;
+    case 'addDomain':
+      draft.domains.push(action.payload);
+      break;
   }
 });

@@ -18,7 +18,7 @@ type State = {
 
 export default () => {
   const [localState, setState] = useImmer<State>({
-    showModal: true,
+    showModal: false,
     domain: "",
     currentStep: 0,
     steps: ["Add domain", "Setup", "Verify"]
