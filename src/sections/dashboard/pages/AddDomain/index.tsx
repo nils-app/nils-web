@@ -27,6 +27,8 @@ export default () => {
   const toggleModal = () =>
     setState(draft => {
       draft.showModal = !draft.showModal;
+      draft.domain = "";
+      draft.currentStep = 0;
     });
 
   const prevStep = () => {
