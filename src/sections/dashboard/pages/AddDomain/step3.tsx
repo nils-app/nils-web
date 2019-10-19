@@ -11,18 +11,12 @@ type Props = {
 };
 
 export default (props: Props) => {
-  const [retry, setRetry] = useState<number>(0);
   const [isLoading, , hasError] = useFetch<any>(
     `/domains/verify/${props.domain}`,
     'POST',
   );
 
-  const onRetry = () => {
-    setRetry(retry + 1);
-  };
-
   let content;
-
   if (isLoading) {
     content = (
       <h3 className="text-center text-muted my-5">
