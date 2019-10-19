@@ -4,7 +4,8 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { API_URL } from '../constants';
 
 export type FetchMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
-export const CSRF_HEADER = 'X-CSRF-Token';
+export const CSRF_HEADER = 'x-csrf-token';
+let csrfToken = '';
 
 type FetchError = {
   status: number,
@@ -30,7 +31,13 @@ function useFetch<T>(path: string, method: FetchMethod, body?: any): FetchReturn
         const data = await fetchResource(path, method, body);
         setResponse(data);
       } catch (error) {
-        if (error.response) {
+        if (error.data) {
+          const returnError: FetchError = {
+            status: error.response.status,
+            message: error.data.errors.join(', '),
+          };
+          setError(returnError);
+        } else if (error.response) {
           console.warn('useFetch error', error.response);
           const returnError: FetchError = {
             status: error.response.status,
@@ -52,7 +59,7 @@ function useFetch<T>(path: string, method: FetchMethod, body?: any): FetchReturn
 
     sendRequest();
 
-  }, [path, method, body]);
+  }, [path, method, body,]);
 
   return [loading, response, error];
 };
@@ -70,9 +77,19 @@ export const fetchResource = async (path: string, method: FetchMethod, body?: an
     timeout: 6000,
     withCredentials: true,
     xsrfHeaderName: CSRF_HEADER,
+    headers: {},
   };
 
+  if (csrfToken.length > 0) {
+    options.headers[CSRF_HEADER] = csrfToken;
+  }
+
   const response = await axios(options);
+
+  if (response.headers[CSRF_HEADER]) {
+    csrfToken = response.headers[CSRF_HEADER];
+  }
+
   return await response.data;
 };
 

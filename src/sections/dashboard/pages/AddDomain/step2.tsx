@@ -1,5 +1,8 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Alert } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import useFetch from "util/fetch";
 
 type Props = {
   domain: string;
@@ -7,8 +10,32 @@ type Props = {
   prev: () => void;
 };
 
+type Verification = {
+  token: string,
+};
+
 export default (props: Props) => {
-  const verificationToken = "abcssdfasf2fqewfq34tqgegsdafa34qg3erw";
+  const [isLoading, verification, hasError] = useFetch<Verification>(
+    `/domains/verify/${props.domain}`,
+    'GET',
+  );
+
+  const loading = (
+    <p className='text-muted'>
+      <FontAwesomeIcon icon='spinner' pulse /> Loading
+    </p>
+  );
+
+  if (hasError) {
+    return (
+      <>
+        <h3>Verify ownership</h3>
+        <Alert variant='danger'>
+          <b>Error:</b> { hasError.message }
+        </Alert>
+      </>
+    );
+  }
 
   return (
     <>
@@ -27,9 +54,11 @@ export default (props: Props) => {
         accesible at <a href={ `http://${props.domain}/nils.html` }><b>{props.domain}/nils.html</b></a> * with the
         following content:
       </p>
-      <pre className="code">
-        <code>{verificationToken}</code>
-      </pre>
+      { isLoading ? loading : (
+        <pre className="code">
+          <code>{verification && verification.token}</code>
+        </pre>
+      ) }
       <p className="text-muted">
         <small>* We'll try both http and https when verifying the domain, and it will work if either works.</small>
       </p>
@@ -37,20 +66,12 @@ export default (props: Props) => {
       <hr />
 
       <h4>DNS Verification</h4>
-      <p>Add the following TXT record in your DNS provider</p>
-      <pre className="code">
-        <code>
-          Name: nils <br />
-          Content: {verificationToken}
-        </code>
-      </pre>
-      <p>
-        If your DNS provider only gives you one field to add TXT records, add it
-        like this:
-      </p>
-      <pre className="code">
-        <code>nils={verificationToken}</code>
-      </pre>
+      <p>Add the following <b>TXT</b> record in your DNS provider at the root.</p>
+      { isLoading ? loading : (
+        <pre className="code">
+          <code>nils={verification && verification.token}</code>
+        </pre>
+      ) }
 
       <hr />
 
@@ -58,7 +79,7 @@ export default (props: Props) => {
         <Button variant="light" size="sm" onClick={props.prev} className='mr-4'>
           Back
         </Button>
-        <Button variant="secondary" size="sm" onClick={props.next}>
+        <Button variant="secondary" size="sm" onClick={props.next} disabled={ isLoading }>
           Verify
         </Button>
       </p>
