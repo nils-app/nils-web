@@ -44,7 +44,7 @@ const sections: Section[] = [
 
 export default () => {
   return (
-    <div className='sidebar'>
+    <div className='sidebar dark'>
       <div className="top">
         <h1 className='logo'>
           <Logo />
