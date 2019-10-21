@@ -26,5 +26,11 @@ export default produce((draft: AppState, action: Action) => {
     case 'addDomain':
       draft.domains.push(action.payload);
       break;
+    case 'deleteDomain':
+      const index = draft.domains.findIndex(domain => domain.uuid === action.payload);
+      if (index > -1) {
+        draft.domains.splice(index);
+      }
+      break;
   }
 });

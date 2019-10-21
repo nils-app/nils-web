@@ -7,7 +7,7 @@ export type FetchMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 export const CSRF_HEADER = 'x-csrf-token';
 let csrfToken = '';
 
-type FetchError = {
+export type FetchError = {
   status: number,
   message: string,
 };
@@ -31,21 +31,7 @@ function useFetch<T>(path: string, method: FetchMethod, body?: any): FetchReturn
         const data = await fetchResource(path, method, body);
         setResponse(data);
       } catch (error) {
-        if (error.response) {
-          console.warn('useFetch error', error.response);
-          const returnError: FetchError = {
-            status: error.response.status,
-            message: error.response.data ? error.response.data.errors.join(', ') : error.message,
-          };
-          setError(returnError);
-        } else {
-          console.warn('useFetch error', error);
-          const returnError: FetchError = {
-            status: 500,
-            message: error.message,
-          };
-          setError(returnError);
-        }
+        setError(error);
       } finally {
         setLoading(false);
       }
@@ -78,13 +64,33 @@ export const fetchResource = async (path: string, method: FetchMethod, body?: an
     options.headers[CSRF_HEADER] = csrfToken;
   }
 
-  const response = await axios(options);
+  try {
+    const response = await axios(options);
 
-  if (response.headers[CSRF_HEADER]) {
-    csrfToken = response.headers[CSRF_HEADER];
+    if (response.headers[CSRF_HEADER]) {
+      csrfToken = response.headers[CSRF_HEADER];
+    }
+
+    return await response.data;
+  } catch (error) {
+    if (error.response) {
+      console.warn('useFetch error', error.response);
+      const returnError: FetchError = {
+        status: error.response.status,
+        message: error.response.data ? error.response.data.errors.join(', ') : error.message,
+      };
+      throw returnError;
+    } else {
+      console.warn('useFetch error', error);
+      const returnError: FetchError = {
+        status: 500,
+        message: error.message,
+      };
+      throw returnError;
+    }
   }
 
-  return await response.data;
+
 };
 
 export default useFetch;

@@ -87,6 +87,13 @@ export default () => {
         <Modal.Body>
           <Wizard steps={localState.steps} active={localState.currentStep} />
           {currentStep}
+          { localState.currentStep === localState.steps.length - 1 && (
+            <div className="text-center">
+              <Button variant="light" size="sm" onClick={toggleModal}>
+                Close
+              </Button>
+            </div>
+          ) }
         </Modal.Body>
       </Modal>
     </>
