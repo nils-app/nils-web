@@ -1,4 +1,5 @@
 import React from "react";
+import { Table } from "react-bootstrap";
 
 type Props = {
   header: string,
@@ -12,8 +13,8 @@ export default (props: Props) => {
   return (
     <div className="dashboard-widget">
       <h2>{props.header}</h2>
-      <div className="table-responsive">
-        <table className="table table-striped table-sm">
+      <div className="table-widget">
+        <Table responsive striped size='sm'>
           <thead>
             <tr>
               {props.columns.map(column => (
@@ -30,7 +31,7 @@ export default (props: Props) => {
                 </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </div>
     </div>
   );

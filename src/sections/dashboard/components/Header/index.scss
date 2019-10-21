@@ -1,3 +1,13 @@
 .header {
   margin-bottom: 1rem;
+
+  .navbar-brand {
+    background: fade-out(#fff, 0.5);
+    padding: 0.1em;
+    border-radius: 50%;
+
+    img {
+      width: 1.5em;
+    }
+  }
 }

@@ -50,8 +50,8 @@ h4 {
     padding: 1rem;
 }
 
-.navbar {
-    a {
+.navbar, .navbar-dark {
+    .nav-link, .navbar-nav .nav-link {
         color: fade-out(#fff, 0.3);
         transition: transform ease-in 50ms;
 
@@ -110,8 +110,6 @@ pre.code {
   font-size: 0.9rem;
   color: #555;
 }
-
-
 
 .hover-show {
   .hide {

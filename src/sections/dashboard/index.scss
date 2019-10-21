@@ -99,7 +99,6 @@ a.dashboard-widget {
     position: relative;
     overflow: hidden;
     padding: 1rem 2rem $bottomGradientSpacing;
-    z-index: 0;
 
     &:after {
       content: ' ';
@@ -111,6 +110,5 @@ a.dashboard-widget {
       bottom: -15rem;
       left: 0;
       transform: rotate(-2deg);
-      z-index: -1;
     }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Alert } from "react-bootstrap";
+import { Row, Col, Alert, Table } from "react-bootstrap";
 import Helmet from "react-helmet";
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -67,47 +67,49 @@ export default () => {
               </Alert>
             ) }
 
-            <table className="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>
-                    Domain
-                  </th>
-                  <th>
-                    Balance
-                  </th>
-                  <th>
-                    Added on
-                  </th>
-                  <th style={ { width: 100 } }>
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                { state.domains.map(domain => (
-                  <tr key={ domain.uuid } className={ classNames('hover-show', { 'text-muted': deletingDomain === domain.domain }) }>
-                    <td>{ domain.domain }</td>
-                    <td>{ domain.balance }</td>
-                    <td>{ (new Date(domain.created_on)).toLocaleDateString(locale, dateOpts) }</td>
-                    <td className='text-rigth'>
-                      { deletingDomain ? (
-                        <span className="text-muted">
-                          <FontAwesomeIcon icon='spinner' pulse />
-                        </span>
-                      ) : (
-                        <span className='hide text-danger'>
-                          <DeleteDomain
-                            name={ domain.domain }
-                            onConfirm={ onDelete(domain) }
-                          />
-                        </span>
-                      ) }
-                    </td>
+            <div className="table-widget">
+              <Table responsive striped size='sm'>
+                <thead>
+                  <tr>
+                    <th>
+                      Domain
+                    </th>
+                    <th>
+                      Balance
+                    </th>
+                    <th>
+                      Added on
+                    </th>
+                    <th style={ { width: 100 } }>
+                      Actions
+                    </th>
                   </tr>
-                )) }
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  { state.domains.map(domain => (
+                    <tr key={ domain.uuid } className={ classNames('hover-show', { 'text-muted': deletingDomain === domain.domain }) }>
+                      <td>{ domain.domain }</td>
+                      <td>{ domain.balance }</td>
+                      <td>{ (new Date(domain.created_on)).toLocaleDateString(locale, dateOpts) }</td>
+                      <td className='text-rigth'>
+                        { deletingDomain ? (
+                          <span className="text-muted">
+                            <FontAwesomeIcon icon='spinner' pulse />
+                          </span>
+                        ) : (
+                          <span className='hide text-danger'>
+                            <DeleteDomain
+                              name={ domain.domain }
+                              onConfirm={ onDelete(domain) }
+                            />
+                          </span>
+                        ) }
+                      </td>
+                    </tr>
+                  )) }
+                </tbody>
+              </Table>
+            </div>
           </div>
         </Col>
       </Row>
