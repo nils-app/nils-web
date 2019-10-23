@@ -10,6 +10,7 @@ import DeleteDomain from "./DeleteDomain";
 import { useStateValue } from "store/state";
 import { fetchResource } from "util/fetch";
 import { Domain } from "store/types";
+import { printDate } from "util/date";
 
 export default () => {
   const { state, dispatch } = useStateValue();
@@ -37,9 +38,6 @@ export default () => {
   const onDelete = (domain: Domain) => () => {
     deleteDomain(domain);
   }
-
-  const locale = undefined;
-  const dateOpts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
   return (
     <>
@@ -90,7 +88,7 @@ export default () => {
                     <tr key={ domain.uuid } className={ classNames('hover-show', { 'text-muted': deletingDomain === domain.domain }) }>
                       <td>{ domain.domain }</td>
                       <td>{ domain.balance }</td>
-                      <td>{ (new Date(domain.created_on)).toLocaleDateString(locale, dateOpts) }</td>
+                      <td>{ printDate(domain.created_on) }</td>
                       <td className='text-rigth'>
                         { deletingDomain ? (
                           <span className="text-muted">

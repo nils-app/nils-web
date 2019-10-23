@@ -21,6 +21,10 @@ export default () => {
     '/users/balance',
     'GET',
   );
+  const [, payouts,] = useFetch<any>(
+    '/payouts',
+    'GET',
+  );
   useEffect(() => {
     if (balance) {
       dispatch({
@@ -28,7 +32,13 @@ export default () => {
         payload: balance,
       })
     }
-  }, [balance, dispatch]);
+    if (payouts) {
+      dispatch({
+        type: 'payouts',
+        payload: payouts,
+      })
+    }
+  }, [balance, payouts, dispatch]);
 
   return (
     <>

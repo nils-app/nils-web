@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 import { useStateValue } from "store/state";
+import { printDate } from "util/date"
 
 import Header from "../components/Header";
 import Counter from "../widgets/counter";
@@ -17,17 +18,24 @@ export default () => {
   let balancesData = state.domains;
 
   const payoutColumns = [
-    'Reference',
     'Date',
     'Amount',
   ];
-  const payoutData = [
-    {
-      reference: 'NILS420',
-      date: '5th Sep 2019',
-      amount: '£10',
-    },
-  ];
+  const payoutData = state.payouts;
+
+  let nextPayout = null;
+  let nextPayoutDate = 'N/A';
+  let lastPayoutDate = '';
+  if (payoutData) {
+    nextPayout = payoutData.find(payout => !payout.sent_on);
+    if (nextPayout) {
+      nextPayoutDate = printDate(nextPayout.sent_on);
+    }
+    const lastPayout = payoutData.find(payout => payout.sent_on);
+    if (lastPayout) {
+      lastPayoutDate = printDate(lastPayout.sent_on);
+    }
+  }
 
   return (
     <>
@@ -43,7 +51,7 @@ export default () => {
               change={3.5}
               history="Since last month"
               href="/dashboard/balance"
-              tooltip="View your monthly balance"
+              tooltip="View your monthly balance aggregated from all your domains"
             />
           </Col>
           <Col xs={12} sm>
@@ -59,12 +67,12 @@ export default () => {
           <Col xs={12} sm>
             <Counter
               title="Next payout"
-              content="1st Oct 2019"
+              content={ nextPayoutDate }
               icon="credit-card"
               iconBg="orange"
-              history="Last: 5th Sep 2019"
+              history={ `Last: ${lastPayoutDate}` }
               href="/dashboard/payouts"
-              tooltip="View your payout settings and history"
+              tooltip="View your payout settings and history. Your next payout date will appear as soon as your account has some balance"
             />
           </Col>
         </Row>

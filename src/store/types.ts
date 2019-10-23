@@ -2,6 +2,7 @@ export type User = {
   uuid: string,
   email?: string,
   balance: number,
+  transferwise_id: number | null,
   created_on: Date,
 };
 
@@ -9,6 +10,15 @@ export type Domain = {
   uuid: string,
   domain: string,
   balance: number,
+  created_on: Date,
+};
+
+export type Payout = {
+  uuid: string,
+  amount_nils: number,
+  amount_fiat: number,
+  currency: string,
+  sent_on: Date,
   created_on: Date,
 };
 
@@ -20,6 +30,7 @@ export type AppState = {
     csrf: string | null,
   },
   domains: Domain[],
+  payouts: Payout[],
 };
 
 export type Action = {

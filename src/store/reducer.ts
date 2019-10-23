@@ -23,6 +23,9 @@ export default produce((draft: AppState, action: Action) => {
       }
       draft.domains = action.payload.domains;
       break;
+    case 'payouts':
+      draft.payouts = action.payload;
+      break;
     case 'addDomain':
       draft.domains.push(action.payload);
       break;
@@ -30,6 +33,11 @@ export default produce((draft: AppState, action: Action) => {
       const index = draft.domains.findIndex(domain => domain.uuid === action.payload);
       if (index > -1) {
         draft.domains.splice(index);
+      }
+      break;
+    case 'setPayoutsTransferwise':
+      if (draft.auth.user) {
+        draft.auth.user.transferwise_id = action.payload;
       }
       break;
   }

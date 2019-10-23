@@ -11,6 +11,7 @@ const initialState: AppState = {
     csrf: null,
   },
   domains: [],
+  payouts: [],
 };
 const defaultDispatch: React.Dispatch<Action> = () => {
   console.warn('Using default reducer, check StateProvider');
