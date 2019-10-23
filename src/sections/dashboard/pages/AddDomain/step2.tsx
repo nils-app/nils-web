@@ -53,10 +53,10 @@ export default (props: Props) => {
 
       <hr />
 
-      <h4>File Verification</h4>
+      <h4>HTTP-01 challenge</h4>
       <p>
-        Upload a file called <b>nils.html</b> to your web server root, so that it is
-        accesible at <a href={ `http://${props.domain}/nils.html` }><b>{props.domain}/nils.html</b></a> * with the
+        Upload a file to <code>http://{"<"}YOUR_DOMAIN{">"}/.well-known/nils</code> , so that it is
+        accesible at <a href={ `http://${props.domain}/.well-known/nils` }><b>{props.domain}/.well-known/nils</b></a> * with the
         following content:
       </p>
       { isLoading ? loading : (
@@ -65,18 +65,23 @@ export default (props: Props) => {
         </pre>
       ) }
       <p className="text-muted">
-        <small>* We'll try both http and https when verifying the domain, and it will work if either works.</small>
+        <small>* We'll try both HTTP and HTTPS when verifying the domain, and it will work if either works.</small>
       </p>
 
       <hr />
 
-      <h4>DNS Verification</h4>
+      <h4>DNS-01 challenge</h4>
+      <p>This challenge asks you to prove that you control the DNS for your domain name by putting a specific value in a TXT record under that domain name.</p>
       <p>Add the following <b>TXT</b> record in your DNS provider at the root.</p>
       { isLoading ? loading : (
         <pre className="code">
           <code>nils={verification && verification.token}</code>
         </pre>
       ) }
+
+      <p className="text-muted">
+        <small>Some DNS providers take up to 24h to propagate changes, your token will not change so you can come back tomorrow and continue the verification process.</small>
+      </p>
 
       <hr />
 

@@ -2,12 +2,14 @@
   margin-bottom: 1rem;
 
   .navbar-brand {
-    background: fade-out(#fff, 0.5);
-    padding: 0.1em;
-    border-radius: 50%;
-
     img {
       width: 1.5em;
+      border: solid 0.1em fade-out(#fff, 0.5);
+      border-radius: 50%;
     }
+  }
+
+  .nav-link.active {
+    border-bottom: solid 4px fade-out(#fff, 0.5);
   }
 }

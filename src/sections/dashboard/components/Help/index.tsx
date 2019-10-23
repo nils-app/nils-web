@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Nav, NavDropdown } from "react-bootstrap";
+import { Modal, NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default () => {

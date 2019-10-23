@@ -45,7 +45,7 @@ export default (props: Props) => {
   return (
     <Row className='header'>
       <Col>
-        <Navbar bg="transparent" variant="dark" expand="lg">
+        <Navbar bg="transparent" variant="dark" expand="md">
           <Navbar.Brand as={NavLink} to="/">
             <Logo />
           </Navbar.Brand>
