@@ -2,12 +2,13 @@ import React from "react";
 import { Row, Col, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 import { API_URL } from '../../../../constants';
 import Help from '../Help';
 import './index.scss';
 import Logo from "components/Logo";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { useStateValue } from "store/state";
 
 type Props = {
 };
@@ -18,30 +19,36 @@ type Section = {
   icon: IconProp,
 };
 
-const sections: Section[] = [
-  {
-    link: '',
-    text: 'Dashboard',
-    icon: 'columns',
-  },
-  {
-    link: 'balance',
-    text: 'Balance history',
-    icon: 'coins',
-  },
-  {
-    link: 'domains',
-    text: 'Domains',
-    icon: 'at',
-  },
-  {
-    link: 'payouts',
-    text: 'Payouts',
-    icon: 'credit-card',
-  },
-];
-
 export default (props: Props) => {
+  const { state } = useStateValue();
+
+  const sections: Section[] = [
+    {
+      link: '',
+      text: 'Dashboard',
+      icon: 'columns',
+    },
+    {
+      link: 'balance',
+      text: 'Balance history',
+      icon: 'coins',
+    },
+    {
+      link: 'domains',
+      text: 'Domains',
+      icon: 'at',
+    },
+    {
+      link: 'payouts',
+      text: 'Payouts',
+      icon: 'credit-card',
+    },
+  ];
+
+  if (state.domains.length < 1) {
+    sections.splice(0, 2);
+  }
+
   return (
     <Row className='header'>
       <Col>

@@ -27,13 +27,13 @@ export default () => {
   let nextPayoutDate = 'N/A';
   let lastPayoutDate = '';
   if (payoutData) {
-    nextPayout = payoutData.find(payout => !payout.sent_on);
-    if (nextPayout) {
-      nextPayoutDate = printDate(nextPayout.sent_on);
+    nextPayout = payoutData.find(payout => !payout.sent_on && payout.estimated_on);
+    if (nextPayout && nextPayout.estimated_on) {
+      nextPayoutDate = printDate(nextPayout.estimated_on);
     }
     const lastPayout = payoutData.find(payout => payout.sent_on);
-    if (lastPayout) {
-      lastPayoutDate = printDate(lastPayout.sent_on);
+    if (lastPayout && lastPayout.sent_on) {
+      lastPayoutDate = `Last: ${printDate(lastPayout.sent_on)}`;
     }
   }
 
@@ -48,8 +48,8 @@ export default () => {
               content="10 Nils"
               icon="coins"
               iconBg="green"
-              change={3.5}
-              history="Since last month"
+              // change={3.5}
+              // history="Since last month"
               href="/dashboard/balance"
               tooltip="View your monthly balance aggregated from all your domains"
             />
@@ -70,7 +70,7 @@ export default () => {
               content={ nextPayoutDate }
               icon="credit-card"
               iconBg="orange"
-              history={ `Last: ${lastPayoutDate}` }
+              history={ lastPayoutDate }
               href="/dashboard/payouts"
               tooltip="View your payout settings and history. Your next payout date will appear as soon as your account has some balance"
             />

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Switch, Route } from "react-router";
+import { Switch, Route, Redirect } from "react-router";
 import Helmet from "react-helmet";
 
 import { useStateValue } from "store/state";
@@ -14,7 +14,7 @@ import Settings from './pages/settings';
 import './index.scss';
 
 export default () => {
-  const { dispatch } = useStateValue();
+  const { state, dispatch } = useStateValue();
 
   // Fetch newer data
   const [, balance,] = useFetch<any>(
@@ -46,11 +46,18 @@ export default () => {
         <title>Dashboard</title>
       </Helmet>
       <Switch>
-        <Route path="/dashboard/balance" component={ Balance } />
         <Route path="/dashboard/domains" component={ Domains } />
         <Route path="/dashboard/payouts" component={ Payouts } />
         <Route path="/dashboard/settings" component={ Settings } />
-        <Route path="/dashboard/" component={ Main } />
+        { state.domains.length > 0 && (
+          <>
+            <Route path="/dashboard/balance" component={ Balance } />
+            <Route path="/dashboard/" component={ Main } />
+          </>
+        ) }
+        { state.domains.length < 1 && (
+          <Redirect to='/dashboard/domains' />
+        )}
       </Switch>
     </>
   );

@@ -55,7 +55,9 @@ export default () => {
                 <h2>Domains</h2>
               </Col>
               <Col className='text-right'>
-                <AddDomain />
+                { state.domains.length > 0 && (
+                  <AddDomain />
+                ) }
               </Col>
             </Row>
 
@@ -65,48 +67,57 @@ export default () => {
               </Alert>
             ) }
 
+
             <div className="table-widget">
-              <Table responsive striped size='sm'>
-                <thead>
-                  <tr>
-                    <th>
-                      Domain
-                    </th>
-                    <th>
-                      Balance
-                    </th>
-                    <th>
-                      Added on
-                    </th>
-                    <th style={ { width: 100 } }>
-                      Actions
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  { state.domains.map(domain => (
-                    <tr key={ domain.uuid } className={ classNames('hover-show', { 'text-muted': deletingDomain === domain.domain }) }>
-                      <td>{ domain.domain }</td>
-                      <td>{ domain.balance }</td>
-                      <td>{ printDate(domain.created_on) }</td>
-                      <td className='text-rigth'>
-                        { deletingDomain ? (
-                          <span className="text-muted">
-                            <FontAwesomeIcon icon='spinner' pulse />
-                          </span>
-                        ) : (
-                          <span className='hide text-danger'>
-                            <DeleteDomain
-                              name={ domain.domain }
-                              onConfirm={ onDelete(domain) }
-                            />
-                          </span>
-                        ) }
-                      </td>
+              { state.domains.length > 0 && (
+                <Table responsive striped size='sm'>
+                  <thead>
+                    <tr>
+                      <th>
+                        Domain
+                      </th>
+                      <th>
+                        Balance
+                      </th>
+                      <th>
+                        Added on
+                      </th>
+                      <th style={ { width: 100 } }>
+                        Actions
+                      </th>
                     </tr>
-                  )) }
-                </tbody>
-              </Table>
+                  </thead>
+                  <tbody>
+                    { state.domains.map(domain => (
+                      <tr key={ domain.uuid } className={ classNames('hover-show', { 'text-muted': deletingDomain === domain.domain }) }>
+                        <td>{ domain.domain }</td>
+                        <td>{ domain.balance }</td>
+                        <td>{ printDate(domain.created_on) }</td>
+                        <td className='text-rigth'>
+                          { deletingDomain ? (
+                            <span className="text-muted">
+                              <FontAwesomeIcon icon='spinner' pulse />
+                            </span>
+                          ) : (
+                            <span className='hide text-danger'>
+                              <DeleteDomain
+                                name={ domain.domain }
+                                onConfirm={ onDelete(domain) }
+                              />
+                            </span>
+                          ) }
+                        </td>
+                      </tr>
+                    )) }
+                  </tbody>
+                </Table>
+              )}
+              { state.domains.length < 1 && (
+                <Alert variant='info' className='mx-3 text-center'>
+                  <p>Get started with your first domain</p>
+                  <AddDomain variant='info' />
+                </Alert>
+              ) }
             </div>
           </div>
         </Col>

@@ -9,6 +9,10 @@ import StepOne from "./step1";
 import StepTwo from "./step2";
 import StepThree from "./step3";
 
+type Props = {
+  variant?: 'primary' | 'secondary' | 'info';
+};
+
 type State = {
   showModal: boolean;
   domain: string;
@@ -16,7 +20,7 @@ type State = {
   steps: string[];
 };
 
-export default () => {
+export default (props: Props) => {
   const [localState, setState] = useImmer<State>({
     showModal: false,
     domain: "",
@@ -69,7 +73,7 @@ export default () => {
 
   return (
     <>
-      <Button variant="secondary" size="sm" onClick={toggleModal}>
+      <Button variant={ props.variant || 'secondary' } size="sm" onClick={toggleModal}>
         <FontAwesomeIcon icon="plus" /> Add
       </Button>
 

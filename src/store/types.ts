@@ -3,6 +3,7 @@ export type User = {
   email?: string,
   balance: number,
   transferwise_id: number | null,
+  currency: string | null,
   created_on: Date,
 };
 
@@ -15,11 +16,13 @@ export type Domain = {
 
 export type Payout = {
   uuid: string,
+  tx_id: any,
   amount_nils: number,
   amount_fiat: number,
   currency: string,
-  sent_on: Date,
+  sent_on: Date | null,
   created_on: Date,
+  estimated_on: Date | null,
 };
 
 export type AppState = {

@@ -1,12 +1,14 @@
 import React from "react";
 import { useImmer } from "use-immer";
-import { Row, Col, Form, Button, Alert } from "react-bootstrap";
+import { Row, Col, Form, Button, Alert, Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Helmet from "react-helmet";
 
 import { useStateValue } from "store/state";
 import { fetchResource } from "util/fetch";
+
 import Header from "../components/Header";
+import PayoutList from './PayoutList';
 
 type State = {
   recipient: {
@@ -50,7 +52,7 @@ export default () => {
     try {
       const data = await fetchResource(
         '/payouts',
-        'POST',
+        'PUT',
         localState.recipient,
       );
       setState(draft => {
@@ -69,6 +71,14 @@ export default () => {
     }
   };
 
+  const sendPayout = async () => {
+    await fetchResource(
+      '/payouts',
+      'POST',
+      localState.recipient,
+    );
+  };
+
   const hasPayoutsSetup = state.auth.user && state.auth.user.transferwise_id;
 
   return (
@@ -82,18 +92,24 @@ export default () => {
       <Row className="content padded">
         <Col>
           <div className="dashboard-widget">
-            <h2>Payouts</h2>
+            <Row>
+              <Col>
+                <h2>Payouts</h2>
+              </Col>
+              <Col className='text-right'>
+                { (hasPayoutsSetup) && (
+                  <Badge variant='success'>
+                    Payouts Account: { state.auth.user ? state.auth.user.currency : '' }
+                  </Badge>
+                ) }
+              </Col>
+            </Row>
+
 
             { (!hasPayoutsSetup) && (
               <Alert variant='info'>
                 Please set up your payouts information below. <br/>
                 We use TransferWise to send you your money, after you enter the account holder name and email address, you will receive an email from TransferWise where you can complete your account and link your bank account.
-              </Alert>
-            ) }
-
-            { (hasPayoutsSetup) && (
-              <Alert variant='success'>
-                Your account is ready to receive payouts!
               </Alert>
             ) }
 
@@ -150,11 +166,22 @@ export default () => {
 
                 <Form.Group>
                   <Form.Text className="text-muted">
-                    Your account data (name, email address and currency) are only stored by TransferWise. We will only receive a numerical reference to your account.
+                    TransferWise will send you an email with more information on the next steps to set up your account to receive payouts.
                   </Form.Text>
                 </Form.Group>
               </Form>
             ) }
+            { (hasPayoutsSetup) && (
+              <>
+                <PayoutList />
+                <Button size='sm' onClick={ sendPayout }>Send sample payout</Button>
+              </>
+            ) }
+            <div className='mt-4 text-muted'>
+              <small>
+              Your account data (name, email address and currency) are only stored by TransferWise. We will store a numerical identifier for your account that allows us to send you payments.
+              </small>
+            </div>
           </div>
         </Col>
       </Row>
