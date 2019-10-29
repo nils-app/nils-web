@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useStateValue } from '../store/state';
 import { fetchResource } from '../util/fetch';
 
-const FAKE_AUTH = true;
+const FAKE_AUTH = false;
 
 function useCheckLogin() {
   const { state, dispatch } = useStateValue();
@@ -11,7 +11,7 @@ function useCheckLogin() {
 
   useEffect(() => {
     if (!checkedLogin) {
-      if (FAKE_AUTH) {
+      if (process.env.NODE_ENV === 'development' && FAKE_AUTH) {
         dispatch({
           type: 'login',
           payload: {
@@ -23,6 +23,12 @@ function useCheckLogin() {
               created_on: new Date(),
             },
             csrf: '123',
+          },
+        });
+        dispatch({
+          type: 'status',
+          payload: {
+            offline: true,
           },
         })
         return;

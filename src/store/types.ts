@@ -32,6 +32,7 @@ export type AppState = {
     user: User | null,
     csrf: string | null,
   },
+  offline: boolean,
   domains: Domain[],
   payouts: Payout[],
 };

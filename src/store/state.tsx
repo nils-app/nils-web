@@ -10,6 +10,7 @@ const initialState: AppState = {
     user: null,
     csrf: null,
   },
+  offline: false,
   domains: [],
   payouts: [],
 };

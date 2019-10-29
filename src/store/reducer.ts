@@ -40,5 +40,8 @@ export default produce((draft: AppState, action: Action) => {
         draft.auth.user.transferwise_id = action.payload;
       }
       break;
+    case 'status':
+      draft.offline = action.payload.offline;
+      break;
   }
 });

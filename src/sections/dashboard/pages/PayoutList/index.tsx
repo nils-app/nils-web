@@ -40,6 +40,16 @@ export default () => {
     }
   }, [state.payouts, setState]);
 
+  const displayStatus = (txId: number) => {
+    const twData = localState.twPayouts[txId];
+    if (!twData) {
+      return '';
+    }
+
+    const status = twData.status.replace(/_/gmi, ' ');
+    return status.charAt(0).toUpperCase() + status.slice(1);
+  };
+
   return (
     <>
       <div className="table-widget">
@@ -50,10 +60,13 @@ export default () => {
                 Amount
               </th>
               <th>
+                Status
+              </th>
+              <th>
                 Created On
               </th>
               <th>
-                Status
+                Sent On
               </th>
             </tr>
           </thead>
@@ -61,8 +74,9 @@ export default () => {
             { state.payouts.map(payout => (
               <tr key={ payout.uuid } className={ classNames('hover-show') }>
                 <td>{ payout.amount_fiat } { payout.currency }</td>
+                <td>{ displayStatus(payout.tx_id) }</td>
                 <td>{ printDate(payout.created_on) }</td>
-                <td>{ localState.twPayouts[payout.tx_id]? localState.twPayouts[payout.tx_id].status : '' }</td>
+                <td>{ printDate(payout.sent_on) }</td>
               </tr>
             )) }
           </tbody>
