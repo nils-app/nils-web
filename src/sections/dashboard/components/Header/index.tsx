@@ -70,16 +70,12 @@ export default (props: Props) => {
                 </Nav.Link>
               )) }
             </Nav>
-            <NavDropdown title="Account" alignRight id='account-dropdown'>
+            <Nav>
               <Help />
-              <NavDropdown.Item as={NavLink} to={ `/dashboard/settings` } exact>
-                <FontAwesomeIcon icon="cog" /> Settings
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href={ `${API_URL}/users/logout` }>
+              <Nav.Link href={ `${API_URL}/users/logout` }>
                 <FontAwesomeIcon icon="sign-out-alt" /> Sign Out
-              </NavDropdown.Item>
-            </NavDropdown>
+              </Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Navbar>
       </Col>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Modal, Alert, Table } from 'react-bootstrap';
 import { useImmer } from 'use-immer';
+import classNames from 'classnames';
 
 import { useStateValue } from 'store/state';
 import { fetchResource } from 'util/fetch';
@@ -108,12 +109,20 @@ export default () => {
                       { localState.twData.details.email }
                     </td>
                   </tr>
+                  <tr>
+                    <th>
+                      Account Status
+                    </th>
+                    <td className={ classNames({ 'text-success': localState.twData.active, 'text-danger': !localState.twData.active }) }>
+                      { localState.twData.active ? 'Active' : 'Inactive' }
+                    </td>
+                  </tr>
                 </tbody>
               </Table>
               <div className='mt-4 text-muted'>
                 <small>
-                Your account data (personal information and banking details) are only stored by TransferWise. We will store a numerical identifier for your account that allows us to send you payments. <br/>
-                The data displayed here is provided by TransferWise and is not stored by us.
+                Your account data (personal information and banking details) are only stored by TransferWise. TransferWise generates a random unique identifier for your account, which is the only data we store, allowing us to send you payments. <br/>
+                The data displayed here is loaded directly from TransferWise.
                 </small>
               </div>
             </>

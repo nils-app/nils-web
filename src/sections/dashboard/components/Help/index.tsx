@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, NavDropdown } from "react-bootstrap";
+import { Modal, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default () => {
@@ -10,9 +10,9 @@ export default () => {
 
   return (
     <>
-      <NavDropdown.Item onClick={handleShow}>
+      <Nav.Link onClick={handleShow}>
         <FontAwesomeIcon icon="question-circle" /> Help
-      </NavDropdown.Item>
+      </Nav.Link>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className='bg-fade' closeButton>
