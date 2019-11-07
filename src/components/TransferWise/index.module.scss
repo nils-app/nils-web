@@ -1,0 +1,18 @@
+.transferwise {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.8em;
+  min-width: 100px;
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.8em;
+    color: #aaa;
+  }
+
+  img {
+    height: 1.25em;
+  }
+}

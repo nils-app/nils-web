@@ -6,8 +6,9 @@ import Helmet from "react-helmet";
 
 import { useStateValue } from "store/state";
 import { fetchResource } from "util/fetch";
+import TransferWise from "components/TransferWise";
+import Header from "sections/dashboard/components/Header";
 
-import Header from "../../components/Header";
 import PayoutList from './PayoutList';
 import AccountStatus from './AccountStatus';
 
@@ -175,6 +176,9 @@ export default () => {
                 <Button size='sm' onClick={ sendPayout }>Send sample payout</Button>
               </>
             ) }
+            <div className='text-right'>
+              <TransferWise />
+            </div>
           </div>
         </Col>
       </Row>
