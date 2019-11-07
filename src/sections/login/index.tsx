@@ -38,6 +38,15 @@ export default () => {
                     </a>
                   );
                 }) }
+                <br/>
+                <p>
+                  <a
+                      href={ `${API_URL}/auth/local/demo?returnTo=http://localhost:3000/dashboard` }
+                      className={ classNames('btn', `btn-primary`, 'mb-4', 'mx-2') }
+                    >
+                      Demo account
+                    </a>
+                </p>
                 <hr className='mt-5 mb-4' />
                 <p className='text-muted'>
                   <small>

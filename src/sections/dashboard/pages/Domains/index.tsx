@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Row, Col, Alert, Table } from "react-bootstrap";
 import Helmet from "react-helmet";
 import classNames from 'classnames';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Header from "../components/Header";
+import Header from "../../components/Header";
 import AddDomain from "./AddDomain";
 import DeleteDomain from "./DeleteDomain";
 import { useStateValue } from "store/state";
 import { fetchResource } from "util/fetch";
 import { Domain } from "store/types";
 import { printDate } from "util/date";
+import Loader from "components/Loader";
 
 export default () => {
   const { state, dispatch } = useStateValue();
@@ -96,7 +96,7 @@ export default () => {
                         <td className='text-rigth'>
                           { deletingDomain ? (
                             <span className="text-muted">
-                              <FontAwesomeIcon icon='spinner' pulse />
+                              <Loader text='' />
                             </span>
                           ) : (
                             <span className='hide text-danger'>

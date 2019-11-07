@@ -7,8 +7,8 @@ import useFetch from "util/fetch";
 
 import Main from './pages/index';
 import Balance from './pages/balance';
-import Payouts from './pages/payouts';
-import Domains from './pages/domains';
+import Payouts from './pages/Payouts';
+import Domains from './pages/Domains';
 import Settings from './pages/settings';
 
 import './index.scss';

@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Alert } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import useFetch from "util/fetch";
+import Loader from "components/Loader";
 
 type Props = {
   domain: string;
@@ -22,7 +22,7 @@ export default (props: Props) => {
 
   const loading = (
     <p className='text-muted'>
-      <FontAwesomeIcon icon='spinner' pulse /> Loading
+      <Loader />
     </p>
   );
 

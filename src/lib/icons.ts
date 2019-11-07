@@ -19,6 +19,7 @@ import {
     faSpinner,
     faPlus,
     faTrash,
+    faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -57,5 +58,6 @@ export default () => {
     faSpinner,
     faPlus,
     faTrash,
+    faExclamationTriangle,
   );
 };

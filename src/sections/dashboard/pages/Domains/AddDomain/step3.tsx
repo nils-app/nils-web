@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Button, Alert } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import useFetch from "util/fetch";
 import { useStateValue } from "store/state";
+import Loader from "components/Loader";
 
 type Props = {
   domain: string;
@@ -32,7 +32,7 @@ export default (props: Props) => {
   if (isLoading) {
     content = (
       <h3 className="text-center text-muted my-5">
-        <FontAwesomeIcon icon='spinner' pulse /> Verifiying...
+        <Loader text='Verifying...' />
       </h3>
     );
   } else if (hasError) {
