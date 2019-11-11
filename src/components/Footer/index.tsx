@@ -11,20 +11,16 @@ export default (props: Props) => (
     <div className="more">
     <Container>
         <Row>
-          <Col md={ 2 }>
-            <h4>Contact</h4>
-            <p>
-              Reach out on:<br />
-              <a href="mailto:help@nilsapp.com">help@nilsapp.com</a>
-            </p>
-          </Col>
           <Col>
             <h4>Want to help?</h4>
             <p>
-              Nils is Open Source, released under the <a href="https://github.com/nils-app/nils-web/blob/master/LICENSE">AGPL-3 License</a>.
+              Reach out on <a href="mailto:help@nilsapp.com">help@nilsapp.com</a>
             </p>
             <p>
               View and contribute to <a href="https://github.com/nils-app">Nils on Github</a>.
+            </p>
+            <p>
+              Nils is Open Source, released under the <a href="https://github.com/nils-app/nils-web/blob/master/LICENSE">AGPL-3 License</a>.
             </p>
           </Col>
           <Col>
