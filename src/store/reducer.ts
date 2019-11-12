@@ -19,7 +19,7 @@ export default produce((draft: AppState, action: Action) => {
       break;
     case 'balance':
       if (draft.auth.user) {
-        draft.auth.user.balance = action.payload.balance;
+        draft.auth.user.balance = action.payload.personal;
       }
       draft.domains = action.payload.domains;
       break;

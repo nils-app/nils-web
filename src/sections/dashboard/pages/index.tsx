@@ -37,6 +37,8 @@ export default () => {
     }
   }
 
+  const balance = state.auth.user ? `${state.auth.user.balance} Nils` : 0;
+
   return (
     <>
       <div className="header bg-gradient">
@@ -45,7 +47,7 @@ export default () => {
           <Col xs={12} sm>
             <Counter
               title="Balance"
-              content="10 Nils"
+              content={ balance }
               icon="coins"
               iconBg="green"
               // change={3.5}

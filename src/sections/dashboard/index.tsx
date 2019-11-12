@@ -50,10 +50,10 @@ export default () => {
         <Route path="/dashboard/payouts" component={ Payouts } />
         <Route path="/dashboard/settings" component={ Settings } />
         { state.domains.length > 0 && (
-          <>
-            <Route path="/dashboard/balance" component={ Balance } />
-            <Route path="/dashboard/" component={ Main } />
-          </>
+          <Route path="/dashboard/balance" component={ Balance } />
+        ) }
+        { state.domains.length > 0 && (
+          <Route path="/dashboard/" component={ Main } />
         ) }
         { state.domains.length < 1 && (
           <Redirect to='/dashboard/domains' />

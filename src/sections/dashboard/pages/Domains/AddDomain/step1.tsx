@@ -28,7 +28,7 @@ export default (props: Props) => {
     }
   };
 
-  const onDomainChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onDomainChange = (e: any) => {
     if (!e || !e.currentTarget) {
       return;
     }
