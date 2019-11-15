@@ -17,7 +17,7 @@ export default (props: Props) => {
     validated: false,
   });
 
-  const addDomain = (e: React.FormEvent<HTMLFormElement>) => {
+  const addDomain = (e: React.ChangeEvent<any>) => {
     e.preventDefault();
     const form = e.currentTarget;
     setState(draft => {
@@ -28,7 +28,7 @@ export default (props: Props) => {
     }
   };
 
-  const onDomainChange = (e: any) => {
+  const onDomainChange = (e: React.ChangeEvent<any>) => {
     if (!e || !e.currentTarget) {
       return;
     }

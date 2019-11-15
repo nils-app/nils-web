@@ -36,7 +36,7 @@ export default () => {
     recipientResponse: null,
   });
 
-  const updateField = (field: keyof State['recipient']) => (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateField = (field: keyof State['recipient']) => (e: React.ChangeEvent<any>) => {
     if (!e || !e.currentTarget) {
       return;
     }

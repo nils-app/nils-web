@@ -29,7 +29,8 @@ type Props = {
 
 export const StateProvider = (props: Props) =>{
   const [state, dispatch] = React.useReducer(reducer, initialState);
-  const value = { state, dispatch };
+  // TODO: if value is not "any" then typescript has an issue with readonly state values
+  const value: any = { state, dispatch };
   return (
     <StateContext.Provider value={ value }>
       { props.children }

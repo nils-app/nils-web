@@ -51,7 +51,7 @@ export default () => {
         draft.twData = null;
       });
     });
-  }, []);
+  }, [setState]);
 
   let icon = null;
   let buttonClass: any = 'success';

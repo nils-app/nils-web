@@ -25,7 +25,7 @@ export default (props: Props) => {
       draft.confirmName = "";
     });
 
-  const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onNameChange = (e: React.ChangeEvent<any>) => {
     if (!e || !e.currentTarget) {
       return;
     }
