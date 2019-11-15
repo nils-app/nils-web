@@ -3,7 +3,6 @@ import { Container, Row, Col, Button, Accordion, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Navbar from "components/Navbar";
-import Footer from "components/Footer";
 
 import "./index.scss";
 import faq from "./faq";
@@ -91,7 +90,6 @@ export default () => {
           </Row>
         </Container>
       </section>
-      <Footer />
     </>
   );
 };
