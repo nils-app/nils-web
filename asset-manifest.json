@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/nils-web/static/css/main.9f06c059.chunk.css",
-    "main.js": "/nils-web/static/js/main.dd312e4c.chunk.js",
-    "main.js.map": "/nils-web/static/js/main.dd312e4c.chunk.js.map",
+    "main.css": "/nils-web/static/css/main.33931147.chunk.css",
+    "main.js": "/nils-web/static/js/main.3bca25c5.chunk.js",
+    "main.js.map": "/nils-web/static/js/main.3bca25c5.chunk.js.map",
     "runtime-main.js": "/nils-web/static/js/runtime-main.7af391c7.js",
     "runtime-main.js.map": "/nils-web/static/js/runtime-main.7af391c7.js.map",
-    "static/js/2.1bf69ab8.chunk.js": "/nils-web/static/js/2.1bf69ab8.chunk.js",
-    "static/js/2.1bf69ab8.chunk.js.map": "/nils-web/static/js/2.1bf69ab8.chunk.js.map",
+    "static/js/2.69e085b4.chunk.js": "/nils-web/static/js/2.69e085b4.chunk.js",
+    "static/js/2.69e085b4.chunk.js.map": "/nils-web/static/js/2.69e085b4.chunk.js.map",
     "index.html": "/nils-web/index.html",
-    "precache-manifest.ad8a5dee9b8686c10e808e218784c2d5.js": "/nils-web/precache-manifest.ad8a5dee9b8686c10e808e218784c2d5.js",
+    "precache-manifest.4e5f246683d211bba3014fd07b961c54.js": "/nils-web/precache-manifest.4e5f246683d211bba3014fd07b961c54.js",
     "service-worker.js": "/nils-web/service-worker.js",
-    "static/css/main.9f06c059.chunk.css.map": "/nils-web/static/css/main.9f06c059.chunk.css.map",
-    "static/media/logo.png": "/nils-web/static/media/logo.0e05e3c5.png"
+    "static/css/main.33931147.chunk.css.map": "/nils-web/static/css/main.33931147.chunk.css.map",
+    "static/media/logo.png": "/nils-web/static/media/logo.0e05e3c5.png",
+    "static/media/transferwise_logo.png": "/nils-web/static/media/transferwise_logo.c337535a.png"
   },
   "entrypoints": [
     "static/js/runtime-main.7af391c7.js",
-    "static/js/2.1bf69ab8.chunk.js",
-    "static/css/main.9f06c059.chunk.css",
-    "static/js/main.dd312e4c.chunk.js"
+    "static/js/2.69e085b4.chunk.js",
+    "static/css/main.33931147.chunk.css",
+    "static/js/main.3bca25c5.chunk.js"
   ]
 }
