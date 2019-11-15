@@ -9,7 +9,7 @@ import faq from "./faq";
 
 export default () => {
   return (
-    <>
+    <div>
       <header className="landing">
         <div className="bg-angle" />
         <section>
@@ -90,6 +90,6 @@ export default () => {
           </Row>
         </Container>
       </section>
-    </>
+    </div>
   );
 };

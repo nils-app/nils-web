@@ -15,14 +15,12 @@ export default () => {
 
   return (
     <>
-      <div className="app-content">
-        <OfflineCheck />
-        <Switch>
-          <UnauthenticatedRoute path="/login" component={Login} />
-          <AuthenticatedRoute path="/dashboard" component={Dashboard} />
-          <Route path="/" component={Landing} />
-        </Switch>
-      </div>
+      <OfflineCheck />
+      <Switch>
+        <UnauthenticatedRoute path="/login" component={Login} />
+        <AuthenticatedRoute path="/dashboard" component={Dashboard} />
+        <Route path="/" component={Landing} />
+      </Switch>
       <Footer />
     </>
   );
