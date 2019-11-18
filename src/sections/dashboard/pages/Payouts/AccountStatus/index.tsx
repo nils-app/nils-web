@@ -44,7 +44,7 @@ export default () => {
         draft.twData = null;
       });
     });
-  }, [setState]);
+  }, [state.auth.user, setState]);
 
   if (!state.auth.user || !state.auth.user.transferwise_id) {
     return null;
