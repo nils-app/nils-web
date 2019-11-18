@@ -24,17 +24,10 @@ export default () => {
     error: null,
   });
 
-  if (!state.auth.user || !state.auth.user.transferwise_id) {
-    return null;
-  }
-
-  const toggleModal = () => {
-    setState(draft => {
-      draft.showModal = !draft.showModal;
-    });
-  };
-
   useEffect(() => {
+    if (!state.auth.user || !state.auth.user.transferwise_id) {
+      return;
+    }
     fetchResource(
       '/payouts/info',
       'GET',
@@ -53,6 +46,16 @@ export default () => {
     });
   }, [setState]);
 
+  if (!state.auth.user || !state.auth.user.transferwise_id) {
+    return null;
+  }
+
+  const toggleModal = () => {
+    setState(draft => {
+      draft.showModal = !draft.showModal;
+    });
+  };
+
   let icon = null;
   let buttonClass: any = 'success';
   if (localState.loading) {
@@ -66,7 +69,7 @@ export default () => {
   return (
     <>
       <Button variant={ buttonClass } size='sm' onClick={ toggleModal }>
-        { icon } Account: { state.auth.user ? state.auth.user.currency : '' }
+        { icon } Account information
       </Button>
 
       <Modal
