@@ -10,6 +10,7 @@ let csrfToken = '';
 export type FetchError = {
   status: number,
   message: string,
+  errors: string[],
 };
 
 type FetchReturn<T> = [
@@ -78,6 +79,7 @@ export const fetchResource = async (path: string, method: FetchMethod, body?: an
       const returnError: FetchError = {
         status: error.response.status,
         message: error.response.data ? error.response.data.errors.join(', ') : error.message,
+        errors: error.response.data.errors,
       };
       throw returnError;
     } else {
@@ -85,6 +87,7 @@ export const fetchResource = async (path: string, method: FetchMethod, body?: an
       const returnError: FetchError = {
         status: 500,
         message: error.message,
+        errors: [error.message]
       };
       throw returnError;
     }

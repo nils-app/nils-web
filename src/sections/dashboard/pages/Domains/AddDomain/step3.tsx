@@ -36,13 +36,29 @@ export default (props: Props) => {
       </h3>
     );
   } else if (hasError) {
+    console.log(hasError.errors, hasError.errors.length);
+    let errors: any = (
+      <p>
+        { hasError.message }
+      </p>
+    );
+    if (hasError.errors.length > 0) {
+      errors = (
+        <ul>
+          { hasError.errors.map((error, $index) => (
+            <li key={ $index }>
+              { error }
+            </li>
+          )) }
+        </ul>
+      );
+    }
     content = (
       <>
-        <Alert variant='warning'>
+        <Alert variant='warning' style={ { wordWrap: 'break-word' } }>
           <h4>Verification failed</h4>
-          <p>{ hasError.message }</p>
-          <p>Please double check your verification method and try again.</p>
-          <p>If using DNS verification changes may take up to 24h to propagate.</p>
+          { errors }
+          <p><em>If using DNS verification changes may take up to 24h to propagate.</em></p>
         </Alert>
       </>
     );
